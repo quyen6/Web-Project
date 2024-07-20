@@ -1,0 +1,274 @@
+
+.header {
+    max-width: 100%;
+    height: 60px;
+    background-color: rgb(2, 132, 139);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+    /* CSS thanh tìm kiếm */
+.header-search {
+    background-color: white;
+    width: 310px;
+    height: 35px;
+    border-radius: 3px;
+    position: relative;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+
+.search-btn {
+    height: 35px;
+    width: 55px;
+    border-radius: 0 4px 4px 0;
+    background: #f7f7f7;
+    color: #635f5f;
+    margin-top: 0px;
+    margin-right: 1px;
+    font-size: 27px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0px;
+    border: none;
+}
+
+.icon-search {
+    height: 28px;
+    width: 30px;
+}
+    /* CSS Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    padding: 5px 10px 0 10px;
+    transition: border 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.navbar-list a img {
+    width: 25px;
+    height: 30px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+}
+
+.navbar-list a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgb(6, 101, 106);
+    color: darkred;
+
+}
+
+/* CSS tư vẫn miễn phí */
+.freeConsultation  {
+    margin: 5px 5px 5px;
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    box-sizing: border-box;
+    position: relative;
+    
+
+}
+.freeConsultation b {
+    /* position: absolute; */
+    top: 10px;
+    left: 15px;
+    font-style: normal;
+    color: rgb(237, 212, 163);
+}
+
+.freeConsultation span {
+    color: white;
+    position: absolute;
+    bottom: -2px;
+    left: 8px;
+
+
+}
+    /* CSS giỏ hàng */
+.header-cart {
+    width: 45px;
+    margin: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+.header-cart-img{
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+}
+.header-cart span{
+    position: absolute;
+    height: 19px;
+    width: 20px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: red;
+    right: 6px;
+    top: 1px;
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+/* CSS đăng nhập */
+.log-in {
+
+    border: 2px solid rgb(237, 230, 216);
+    width: 80px;
+    height: 100%;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: border 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.log-in a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+}
+
+.log-in-icon-img {
+
+    height: 34px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    margin: auto ;
+    padding-top: 1px;
+    position: relative;
+} 
+.log-in-icon span {
+    text-decoration: none;
+    position: absolute;
+    bottom: 2px;
+    left: 9px;
+
+}
+.log-in:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgb(6, 101, 106);
+}
+
+
+
+@media (max-width: 1265px) {
+    /* .header {
+        flex-direction: column;
+        height: 60px;
+        padding: 10px;
+    } */
+
+    .header-search {
+        width: calc(310px * 80%);
+        /* margin-bottom: 10px; */
+    }
+
+    .search-input {
+        width: calc(310px * 80%);
+    }
+
+    .search-btn {
+        width: calc(55px * 80%);
+        margin-top: 0;
+    }
+
+    /* .navbar {
+        flex-direction: row;
+        align-items: center;
+        padding-top: 10px;
+        justify-content: center;
+    }
+
+    .navbar-list {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    } */
+
+    .navbar-list a {
+        /* padding: 10px; */
+    }
+
+    /* .freeConsultation {
+        display: none;
+    } */
+
+    .header-cart, .log-in {
+        /* margin: 10px 0; */
+
+    }
+}
+
+
+@media (max-width: 1065px) {
+    .freeConsultation{
+        height: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .search-input {
+        padding: 6px;
+    }
+
+    .search-btn {
+        width: 50px;
+    }
+
+    .navbar-list a img {
+        width: 20px;
+        height: 25px;
+    }
+
+    .freeConsultation b {
+        font-size: 14px;
+    }
+
+    .freeConsultation span {
+        font-size: 12px;
+    }
+
+    .log-in-icon-img {
+        height: 30px;
+    }
+
+    .log-in span {
+        font-size: 12px;
+    }
+}
