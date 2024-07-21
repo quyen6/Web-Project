@@ -1,4 +1,3 @@
-
 .header {
     max-width: 100%;
     height: 60px;
@@ -10,6 +9,11 @@
     color: white;
     box-sizing: border-box;
     font-size: 13px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+ 
 }
     /* CSS thanh tìm kiếm */
 .header-search {
@@ -19,7 +23,6 @@
     border-radius: 3px;
     position: relative;
     box-sizing: border-box;
-    margin-right: 10px;
 }
 
 .search-input {
@@ -55,6 +58,9 @@
     display: flex;
     justify-content: space-evenly;
     box-sizing: border-box;
+    margin-left: 30px;
+    height: 100%;
+
 }
 
 .navbar-list {
@@ -63,9 +69,13 @@
     margin: 0;
     padding: 0;
     list-style: none;
+;
+
 }
 
 .navbar-list a {
+    outline: none;   
+    height: 100%;
     color: white;
     text-decoration: none;
     border: 2px solid transparent;
@@ -88,23 +98,24 @@
     background-color: rgba(255, 255, 255, 0.5);
     border-color: rgb(6, 101, 106);
     color: darkred;
+    
 
 }
 
 /* CSS tư vẫn miễn phí */
 .freeConsultation  {
-    margin: 5px 5px 5px;
+    margin: 5px 5px 0px 5px ;
     text-decoration: none;
-    display: block;
-    width: 100px;
+    width: 110px;
+    height: 100%;
     box-sizing: border-box;
     position: relative;
-    
-
+    display: block;
+    text-align: center;
 }
 .freeConsultation b {
-    /* position: absolute; */
-    top: 10px;
+    position: absolute;
+    top: 14px;
     left: 15px;
     font-style: normal;
     color: rgb(237, 212, 163);
@@ -113,7 +124,7 @@
 .freeConsultation span {
     color: white;
     position: absolute;
-    bottom: -2px;
+    bottom: 6px;
     left: 8px;
 
 
@@ -147,22 +158,20 @@
 .log-in {
 
     border: 2px solid rgb(237, 230, 216);
-    width: 80px;
+    width: 100px;
     height: 100%;
     padding: 5px 15px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.3);
     transition: border 0.3s, background-color 0.3s;
-    display: flex;
-    flex-direction: column;
     position: relative;
 }
 
 .log-in a {
-    display: flex;
-    flex-direction: column;
+
     text-decoration: none;
     color: white;
+    margin: auto;
 }
 
 .log-in-icon-img {
@@ -170,15 +179,14 @@
     height: 34px;
     padding-bottom: 4px;
     box-sizing: border-box;
-    margin: auto ;
-    padding-top: 1px;
-    position: relative;
+    position: absolute;
+    left: 33px;
 } 
 .log-in-icon span {
     text-decoration: none;
     position: absolute;
     bottom: 2px;
-    left: 9px;
+    left: 16px;
 
 }
 .log-in:hover {
@@ -188,87 +196,63 @@
 
 
 
-@media (max-width: 1265px) {
-    /* .header {
-        flex-direction: column;
-        height: 60px;
-        padding: 10px;
-    } */
+@media (max-width: 1212px) {
+   .header{
+    font-size: 13px;
+   }
+   /* .freeConsultation  {
 
-    .header-search {
-        width: calc(310px * 80%);
-        /* margin-bottom: 10px; */
+    width: calc(135px - 30px);
+
+} */
+.freeConsultation span {
+
+    bottom: 6px;
+    left: 8px;
+}
+
+/* .header-search {
+
+    width: calc( 310px - 20px );
+
+
+} */
+
+
+}
+@media (max-width: 1106px){
+    .navbar {
+      
+        margin-left: 10px;
+    
     }
+}
+@media (max-width: 1086px){
+  .navbar-item-link span {
+    display: none;
+  }
 
-    .search-input {
-        width: calc(310px * 80%);
-    }
+  .navbar-list a{
+    /* margin: auto; */
+    flex-direction: row;
+    padding: 5px 5px 0 5px;
 
-    .search-btn {
-        width: calc(55px * 80%);
-        margin-top: 0;
-    }
+  }
 
-    /* .navbar {
-        flex-direction: row;
-        align-items: center;
-        padding-top: 10px;
-        justify-content: center;
-    }
 
+} 
+@media (max-width: 942px) {
     .navbar-list {
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-    } */
-
-    .navbar-list a {
-        /* padding: 10px; */
-    }
-
-    /* .freeConsultation {
         display: none;
-    } */
-
-    .header-cart, .log-in {
-        /* margin: 10px 0; */
-
     }
 }
-
-
-@media (max-width: 1065px) {
-    .freeConsultation{
-        height: 100%;
-    }
-}
-@media (max-width: 480px) {
-    .search-input {
-        padding: 6px;
+@media (max-width: 652px) {
+.freeConsultation{
+    display: none;
+}}
+@media (max-width: 562px) {
+    .header-search{
+        width: calc(300px - 10%);
     }
 
-    .search-btn {
-        width: 50px;
-    }
-
-    .navbar-list a img {
-        width: 20px;
-        height: 25px;
-    }
-
-    .freeConsultation b {
-        font-size: 14px;
-    }
-
-    .freeConsultation span {
-        font-size: 12px;
-    }
-
-    .log-in-icon-img {
-        height: 30px;
-    }
-
-    .log-in span {
-        font-size: 12px;
-    }
 }
