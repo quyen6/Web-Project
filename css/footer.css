@@ -1,16 +1,17 @@
-.footer{
+.footer {
     border-color: rgb(218, 85, 85);
-    /* line-height: 200px; */
+    line-height: 20px;
     background-color: rgb(2, 132, 139);
     /* text-align: center; */
     /* font-variant: small-caps; */
     clear: both;
     color: white;
     border-radius: 10px;
-    
+    font-size: 12.5px;
+
 }
 
-.ft-content-one{
+.ft-content-one {
     display: flex;
     justify-content: space-around;
     /* align-items: center; */
@@ -19,51 +20,60 @@
 
 .ft-content1 ul {
     list-style-type: none;
-    list-style: none;  
+    list-style: none;
     padding: 0;
 }
 
 .ft-content1 li a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
-    
+
 }
 
 .ft-content1 li a:hover {
-    color: #f0f0f0  
+    color: #f0f0f0
 }
 
 .ft-content2 ul {
     list-style-type: none;
-    list-style: none;  
+    list-style: none;
     padding: 0;
 }
 
-.ft-content2 li  {
+.ft-content2 li {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
-    
+
 }
-.payment{
+.ft-content2 b{
+    color:rgb(152, 47, 47);
+}
+
+.payment {
     display: flex;
-  justify-content: center;
-  list-style: none;
-  /* flex-direction: column-reverse; */
-  
- 
-}
-.ft-content3 h4{
+    justify-content: center;
+    list-style: none;
+    /* flex-direction: column-reverse; */
+    flex-direction: column;
 
-
- 
 }
 
-.payment{
-    
-}
-.payment  img{
-    width: 70px;
+
+.payment {}
+
+.payment img {
+    width: 50px;
     height: 30px;
     flex-direction: row;
     border-radius: 5px;
+    margin: 2px;
+}
+.payment a{
+    text-decoration: none;
+}
+.ft-content-second{
+    padding: 10px;
+    font-size: 11px;
+    text-align: center ;
+    color: black;
 }
