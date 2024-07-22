@@ -1,0 +1,149 @@
+.mg-form {
+    margin-bottom: 10px;
+}
+
+.mg-btn {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.mg-btn-add {
+    margin-bottom: 20px;
+    width: 15%;
+}
+
+.error {
+    color: red;
+    font-size: 90%;
+    font-style: italic;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0;
+}
+
+.header-admin {
+    height: 60px;
+    padding-bottom: 25%;
+    background-color: rgb(2, 132, 139);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    box-sizing: border-box;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    /* Add space between nav and search form */
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-right: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+.search-form {
+    display: flex;
+    max-width: 600px;
+    margin-right: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: black;
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    padding-right: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.dropdown-arrow {
+    margin-left: 10px;
+    font-size: 20 px;
+    color: #000;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 12px 0;
+    margin-top: 10px;
+    list-style: none;
+    border-radius: 0.25rem;
+    width: 150px;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: white;
+}
+
+.dropdown-divider {
+    height: 1px;
+    margin: 8px 0;
+    background-color: #e5e5e5;
+    border: none;
+}
+
+.index {
+    top: 70px;
+    position: absolute;
+}
