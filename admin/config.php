@@ -16,6 +16,6 @@ define('_WEB_PATH_TEMPLATES',_WEB_PATH.'/templates');
 
 //Thông tin kết nổi
 const _HOST = 'localhost';
-const _DB = 'viet_sql';
+const _DB = 'Web_Project';
 const _USER = 'root';
 const _PASS = '';
