@@ -36,3 +36,6 @@ body{
     margin:0 auto;  
     max-width: 1200px;
 }
+.container >iframe[name=page]{
+    width: 100%;
+}
