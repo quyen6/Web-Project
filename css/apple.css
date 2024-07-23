@@ -1,0 +1,107 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: Roboto, sans-serif;
+}
+.cps-container {
+    width: 100%;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li {
+    margin-right: 15px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #0f0f0f;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li a i {
+    margin-right: 10px;
+}
+
+.clear {
+    clear: both;
+}
+
+.list-brand{
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.list-brand >nav{
+    display: flex; 
+    flex-wrap: wrap;
+    line-height: 40px;
+    color: white;   
+}
+
+.list-brand >nav >a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.list-brand .list-brand_item{
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    width: 150px;
+    height: 30px;
+    justify-content: center;
+    margin: 0 10px 10px 0;
+    padding: 2px 4px;
+}
+.list-brand .list-brand_item >span{
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.condition .filter-sort_title{
+    display: block ;
+    color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.condition .filter-sort_list-filter{
+    flex-wrap: wrap;
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.condition .filter-sort_list-filter .btn-filter{
+    align-items: center;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    height: 34px;
+    margin: 0 10px 10px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
