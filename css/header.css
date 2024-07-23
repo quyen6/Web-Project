@@ -178,15 +178,23 @@
 }
 
 
+@media (max-width: 1216px){
+    
+    .navbar-list a{
+  
+        font-size: 12px;
+    
+      }
+  
+  } 
 
-
-@media (max-width: 1218px){
+@media (max-width: 1190px){
   .navbar-list span {
     display: none;
   }
 
   .navbar-list a{
-    /* margin: auto; */
+  
     flex-direction: row;
     padding: 5px 5px 0 5px;
 
