@@ -3,7 +3,8 @@
 .banner {
     height: 350px;
     position: absolute;
-    top: 70px;
+    top: 35px;
+    position: relative;
 }
 
 .banner-list {

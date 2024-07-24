@@ -1,0 +1,136 @@
+.hot-prod {
+    width: 1200px;
+    height: 1660px;
+    position: absolute;
+    top: 386px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    font-family: Roboto, sans-serif;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.prod-mobile,
+.prod-laptop {
+    width: 100%;
+}
+
+.mobile-link,
+.laptop-link {
+    width: 230px;
+    height: 370px;
+    box-shadow: 0 0 7px gray;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px transparent;
+    margin-left: 2px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.prod-mobile1,
+.prod-mobile2,
+.prod-laptop1,
+.prod-laptop2 {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+.prod-mobile2,
+.prod-laptop2 {
+    margin-top: 10px;
+}
+
+/* mobile */
+.mobile-link .love-icon img, .laptop-link .love-icon img {
+    width: 30px;
+    position: absolute;
+    padding: 0;
+    bottom: 6px;
+    right: 5px;
+
+}
+
+
+.love-icon img:hover {
+    transform: scale(1.05);
+}
+
+
+.mobile-link a, .laptop-link a {
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.mobile-link img , .laptop-link img {
+    padding: 25px 0;
+
+}
+
+.mobile-link .name,
+.price , .laptop-link .name,
+.price {
+    text-align: start;
+    padding-left: 5px;
+}
+
+.mobile-link .price , .laptop-link .price{
+    margin-top: 38px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.mobile-link .name ,.laptop-link .name{
+    color: black;
+    font-weight: bold;
+}
+
+.mobile-link .name:hover,
+.laptop-link .name:hover {
+    color: rgb(2, 132, 139);
+    font-weight: bold;
+}
+
+.mobile-link .price del , .laptop-link .price del{
+    font-size: 15px;
+    color: gray;
+}
+
+.mobile-link .sale , .laptop-link .sale {
+    border: 1px transparent red;
+    width: 75px;
+    height: 28px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-top: 6px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    position: absolute;
+    font-size: 12px;
+    top: 0;
+}
+
+.mobile-link .tragop , .laptop-link .tragop {
+    border: 2px solid rgb(106, 146, 186);
+    width: 80px;
+    height: 20px;
+    color: rgb(100, 100, 205);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding-top: 3px;
+    position: absolute;
+    font-size: 11px;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+}

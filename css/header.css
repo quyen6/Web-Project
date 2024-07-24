@@ -177,6 +177,82 @@
     border-color: rgb(6, 101, 106);
 }
 
+/* menu con */
+.all-mobile h4 {
+    margin: 10px;
+}
+
+.navbar .navbar-list .mobile .all-mobile {
+    width: 400px;
+    height: 220px;
+    display: flex;
+    border: 2px transparent ;
+    position: absolute;
+    top: 60px;
+    background-color: white;
+    color: black;
+    left: 520px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+    
+}
+.navbar .navbar-list .mobile .all-mobile .brand  a,
+.navbar .navbar-list .mobile .all-mobile .fillter-price  a{
+    text-transform: none;
+    transform: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+
+}
+.navbar .navbar-list .mobile:hover .all-mobile  {
+    display: flex;
+    
+}
+.navbar .navbar-list .mobile .all-mobile .brand a:hover,
+.navbar .navbar-list .mobile .all-mobile .fillter-price a:hover{
+    border: transparent;
+    /* background-color: #f7f7f7; */
+    color: red;
+    box-shadow: none;
+   
+    
+}
+
+.navbar .navbar-list .mobile .all-mobile .brand a, 
+.navbar .navbar-list .mobile .all-mobile .fillter-price a {
+    padding: 0;
+    text-decoration: none;
+    margin: 0;
+    height: 10%;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1216px){
     
