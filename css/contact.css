@@ -1,14 +1,14 @@
 .contact {
-    right: 230px;
-    top: 500px;
-    width: 50px;
+    right: 90px;
+    top: 530px;
+    width: 200px;
     position: fixed;
+
 }
 
 .zalo img {
-    width: 53px;
-    height: 53px;
-    margin-left: 8px;
+    width: 52px;
+    height: 52px;
     
 }
 .message img {
@@ -17,38 +17,35 @@
     margin-left: 10px;
 }
 
-.zalo, .message {
+.zalo a, .message a {
     display: flex;
-    flex-direction: row-reverse;
-    text-decoration: none;
-    width: 212px;
-    justify-content: end;
     align-items: center;
-    margin: 2px;
+    justify-content: end;
+    text-decoration: none;
+    flex-direction: row-reverse;
+    font-size: 11px;
+    margin: 5px 0;
+
     
 }
-.contact .zalo span,
-.contact .message span {
-    width: 149px;
-    height: 30px;
-    font-size: 11px;
-    text-align: center;
+.zalo a span, .message a span {
+    width: 160px;
     border: 1px transparent aqua;
     background-color: #0277bd;
-    color: white;
-    padding-top: 9px;
     border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    color: white;
     display: none;
+    
 }
-.contact .message span {
-    width: 161px;
-    height: 30px;
-    padding-top: 3px;
-
+.zalo a span{
+    margin-right: 3px;
 }
-.contact .zalo:hover span,
-.contact .message:hover span {
+.message a span {
+    margin-right: -5px;
+}
+ .zalo a:hover span,
+ .message a:hover  span {
     display: block;
 }
-
-
