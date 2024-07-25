@@ -1,0 +1,54 @@
+.contact {
+    right: 230px;
+    top: 500px;
+    width: 50px;
+    position: fixed;
+}
+
+.zalo img {
+    width: 53px;
+    height: 53px;
+    margin-left: 8px;
+    
+}
+.message img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.zalo, .message {
+    display: flex;
+    flex-direction: row-reverse;
+    text-decoration: none;
+    width: 212px;
+    justify-content: end;
+    align-items: center;
+    margin: 2px;
+    
+}
+.contact .zalo span,
+.contact .message span {
+    width: 149px;
+    height: 30px;
+    font-size: 11px;
+    text-align: center;
+    border: 1px transparent aqua;
+    background-color: #0277bd;
+    color: white;
+    padding-top: 9px;
+    border-radius: 5px;
+    display: none;
+}
+.contact .message span {
+    width: 161px;
+    height: 30px;
+    padding-top: 3px;
+
+}
+.contact .zalo:hover span,
+.contact .message:hover span {
+    display: block;
+}
+
+

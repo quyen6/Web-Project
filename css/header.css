@@ -1,4 +1,3 @@
-
 .header {
     max-width: 100%;
     height: 60px;
@@ -15,10 +14,11 @@
     left: 0;
     right: 0;
     z-index: 1000;
-   
- 
+
+
 }
-    /* CSS thanh tìm kiếm */
+
+/* CSS thanh tìm kiếm */
 .header-search {
     background-color: white;
     width: 310px;
@@ -56,7 +56,8 @@
     height: 28px;
     width: 30px;
 }
-    /* CSS Navbar */
+
+/* CSS Navbar */
 .navbar {
     display: flex;
     justify-content: space-evenly;
@@ -72,12 +73,12 @@
     margin: 0;
     padding: 0;
     list-style: none;
-;
+    ;
 
 }
 
 .navbar-list a {
-    outline: none;   
+    outline: none;
     height: 100%;
     color: white;
     text-decoration: none;
@@ -90,6 +91,7 @@
     box-sizing: border-box;
     text-transform: uppercase;
 }
+
 .navbar-list a img {
     width: 25px;
     height: 30px;
@@ -103,28 +105,31 @@
     color: darkred;
     transform: scale(1.05);
 }
+
 .check-order a:hover {
     background-color: transparent;
     border-color: transparent;
- color: white;
+    color: white;
     transform: scale(0.95);
 }
 
 
 
-    /* CSS giỏ hàng */
+/* CSS giỏ hàng */
 .header-cart {
     width: 45px;
     margin: 10px;
     position: relative;
     box-sizing: border-box;
 }
-.header-cart-img{
+
+.header-cart-img {
     margin-top: 5px;
     width: 30px;
     height: 30px;
 }
-.header-cart span{
+
+.header-cart span {
     position: absolute;
     height: 19px;
     width: 20px;
@@ -164,7 +169,8 @@
     box-sizing: border-box;
     position: absolute;
     left: 33px;
-} 
+}
+
 .log-in-icon span {
     text-decoration: none;
     position: absolute;
@@ -172,21 +178,32 @@
     left: 10px;
 
 }
+
 .log-in:hover {
     background-color: rgba(255, 255, 255, 0.5);
     border-color: rgb(6, 101, 106);
 }
 
 /* menu con */
-.all-mobile h4 {
+.all-mobile h4,
+.all-laptop h4,
+.all-iphone h4,
+.all-samsung h4,
+.all-asus h4,
+.all-dell h4 {
     margin: 10px;
 }
 
-.navbar .navbar-list .mobile .all-mobile {
+.navbar .navbar-list .mobile .all-mobile,
+.navbar .navbar-list .iphone .all-iphone,
+.navbar .navbar-list .samsung .all-samsung,
+.navbar .navbar-list .laptop .all-laptop,
+.navbar .navbar-list .asus .all-asus,
+.navbar .navbar-list .dell .all-dell {
     width: 400px;
     height: 220px;
     display: flex;
-    border: 2px transparent ;
+    border: 2px transparent;
     position: absolute;
     top: 60px;
     background-color: white;
@@ -194,10 +211,62 @@
     left: 520px;
     border-radius: 10px;
     box-shadow: 0 0 5px gray;
-    
+    justify-content: space-between;
+    display: none;
+
+
 }
-.navbar .navbar-list .mobile .all-mobile .brand  a,
-.navbar .navbar-list .mobile .all-mobile .fillter-price  a{
+
+/* laptop */
+.navbar .navbar-list .laptop .all-laptop {
+    left: 800px;
+}
+
+/* iphone */
+.navbar .navbar-list .iphone .all-iphone {
+    left: 620px;
+}
+
+/* samsung */
+.navbar .navbar-list .samsung .all-samsung {
+    left: 680px;
+}
+
+/* asus */
+.navbar .navbar-list .asus .all-asus {
+    left: 820px;
+}
+/* dell */
+.navbar .navbar-list .dell .all-dell {
+    left: 900px;
+}
+
+
+
+.navbar .navbar-list .mobile .all-mobile .brand a,
+.navbar .navbar-list .mobile .all-mobile .fillter-price a,
+.navbar .navbar-list .mobile .all-mobile .hot-mobile a,
+/* laptop */
+.navbar .navbar-list .laptop .all-laptop .brand a,
+.navbar .navbar-list .laptop .all-laptop .fillter-price a,
+.navbar .navbar-list .laptop .all-laptop .hot-laptop a,
+/* iphone */
+.navbar .navbar-list .iphone .all-iphone .brand a,
+.navbar .navbar-list .iphone .all-iphone .fillter-price a,
+.navbar .navbar-list .iphone .all-iphone .hot-mobile a,
+/* samsung */
+.navbar .navbar-list .samsung .all-samsung .brand a,
+.navbar .navbar-list .samsung .all-samsung .fillter-price a,
+.navbar .navbar-list .samsung .all-samsung .hot-mobile a,
+/* asus */
+.navbar .navbar-list .asus .all-asus .brand a,
+.navbar .navbar-list .asus .all-asus .fillter-price a,
+.navbar .navbar-list .asus .all-asus .hot-mobile a,
+/* dell */
+.navbar .navbar-list .dell .all-dell .brand a,
+.navbar .navbar-list .dell .all-dell .fillter-price a,
+.navbar .navbar-list .dell .all-dell .hot-mobile a 
+{
     text-transform: none;
     transform: none;
     padding: 0;
@@ -205,23 +274,82 @@
     border: none;
 
 
+
+
 }
-.navbar .navbar-list .mobile:hover .all-mobile  {
+
+.navbar .navbar-list .mobile:hover .all-mobile,
+/* iphone */
+.navbar .navbar-list .iphone:hover .all-iphone,
+/* samsung */
+.navbar .navbar-list .samsung:hover .all-samsung,
+/* laptop */
+.navbar .navbar-list .laptop:hover .all-laptop,
+/* asus */
+.navbar .navbar-list .asus:hover .all-asus,
+/* dell */
+.navbar .navbar-list .dell:hover .all-dell
+{
     display: flex;
-    
+
 }
+
 .navbar .navbar-list .mobile .all-mobile .brand a:hover,
-.navbar .navbar-list .mobile .all-mobile .fillter-price a:hover{
+.navbar .navbar-list .mobile .all-mobile .fillter-price a:hover,
+.navbar .navbar-list .mobile .all-mobile .hot-mobile a:hover,
+/* iphone */
+.navbar .navbar-list .iphone .all-iphone .brand a:hover,
+.navbar .navbar-list .iphone .all-iphone .fillter-price a:hover,
+.navbar .navbar-list .iphone .all-iphone .hot-mobile a:hover,
+/* samsung */
+.navbar .navbar-list .samsung .all-samsung .brand a:hover,
+.navbar .navbar-list .samsung .all-samsung .fillter-price a:hover,
+.navbar .navbar-list .samsung .all-samsung .hot-mobile a:hover,
+/* laptop */
+.navbar .navbar-list .laptop .all-laptop .brand a:hover,
+.navbar .navbar-list .laptop .all-laptop .fillter-price a:hover,
+.navbar .navbar-list .laptop .all-laptop .hot-laptop a:hover,
+/* asus */
+.navbar .navbar-list .asus .all-asus .brand a:hover,
+.navbar .navbar-list .asus .all-asus .fillter-price a:hover,
+.navbar .navbar-list .asus .all-asus .hot-mobile a:hover,
+/* dell */
+.navbar .navbar-list .dell .all-dell .brand a:hover,
+.navbar .navbar-list .dell .all-dell .fillter-price a:hover,
+.navbar .navbar-list .dell .all-dell .hot-mobile a:hover
+{
     border: transparent;
     /* background-color: #f7f7f7; */
     color: red;
     box-shadow: none;
-   
-    
+
+
 }
 
-.navbar .navbar-list .mobile .all-mobile .brand a, 
-.navbar .navbar-list .mobile .all-mobile .fillter-price a {
+.navbar .navbar-list .mobile .all-mobile .brand a,
+.navbar .navbar-list .mobile .all-mobile .fillter-price a,
+.navbar .navbar-list .mobile .all-mobile .hot-mobile a,
+/* iphone */
+.navbar .navbar-list .iphone .all-iphone .brand a,
+.navbar .navbar-list .iphone .all-iphone .fillter-price a,
+.navbar .navbar-list .iphone .all-iphone .hot-mobile a,
+/* samsung */
+.navbar .navbar-list .samsung .all-samsung .brand a,
+.navbar .navbar-list .samsung .all-samsung .fillter-price a,
+.navbar .navbar-list .samsung .all-samsung .hot-mobile a,
+/* laptop */
+.navbar .navbar-list .laptop .all-laptop .brand a,
+.navbar .navbar-list .laptop .all-laptop .fillter-price a,
+.navbar .navbar-list .laptop .all-laptop .hot-laptop a,
+/* asus */
+.navbar .navbar-list .asus .all-asus .brand a,
+.navbar .navbar-list .asus .all-asus .fillter-price a,
+.navbar .navbar-list .asus .all-asus .hot-mobile a,
+/* dell */
+.navbar .navbar-list .dell .all-dell .brand a,
+.navbar .navbar-list .dell .all-dell .fillter-price a,
+.navbar .navbar-list .dell .all-dell .hot-mobile a
+{
     padding: 0;
     text-decoration: none;
     margin: 0;
@@ -254,47 +382,50 @@
 
 
 
-@media (max-width: 1216px){
-    
-    .navbar-list a{
-  
+@media (max-width: 1216px) {
+
+    .navbar-list a {
+
         font-size: 12px;
-    
-      }
-  
-  } 
 
-@media (max-width: 1190px){
-  .navbar-list span {
-    display: none;
-  }
+    }
 
-  .navbar-list a{
-  
-    flex-direction: row;
-    padding: 5px 5px 0 5px;
+}
 
-  }
+@media (max-width: 1190px) {
+    .navbar-list span {
+        display: none;
+    }
+
+    .navbar-list a {
+
+        flex-direction: row;
+        padding: 5px 5px 0 5px;
+
+    }
 
 
-} 
+}
+
 @media (max-width: 930px) {
     .navbar-list {
         display: none;
     }
 
-    .header-search{
+    .header-search {
         width: calc(50% + 20px);
     }
 }
+
 @media (max-width: 724px) {
 
-.header-cart{
-    margin-right: 5px;
+    .header-cart {
+        margin-right: 5px;
+    }
 }
-}
+
 @media (max-width: 562px) {
-    .header-search{
+    .header-search {
         width: calc(300px - 15%);
     }
 
