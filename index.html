@@ -25,7 +25,7 @@
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <img src="" alt="Logo">
+                <a href="home.html" target="page"><img src="" alt="Logo"></a>
             </div>
 
             <form class="header-search">
@@ -41,7 +41,7 @@
             <nav class="navbar">
                 <div class="navbar-list">
                     <div class="mobile">
-                        <a href="">
+                        <a href="mobile.html" target="page">
                             <img class="navbar-item-icon-img" src="./images/header-icon/mobile-icon.jpg">
                             <span>Điện Thoại</span>
 
@@ -298,19 +298,17 @@
                 </div>
 
             </nav>
-            <!-- <div class="check-order">
-                    <a href="tel:0386036132">
-                        <span> Kiểm tra đơn hàng</span>
-                    </a>
-                </div> -->
 
             <div class="header-cart">
-                <a href=""> <img class="header-cart-img" src="./images/header-icon/cart-icon.png"
+                <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="./images/header-icon/cart-icon.png"
                         style="width: 25px; height: 30px;;">
-                    <span class="cart-quantity-item">
+                    <span class="cart-quantity-item" id="count">
                         0
                     </span>
                 </a>
+                <div class="cart-no-item">
+                    <img src="images/header-icon/no-cart.png" alt="">
+                </div>
             </div>
             <div class="log-in">
                 <a href="" class="log-in-icon">
@@ -319,341 +317,13 @@
                 </a>
             </div>
         </header>
-        </header>
+
 
         <!-- Main Container  -->
-        <div id="container" style="height: 3000px; ">
-
-            <!-- Banner -->
-            <div class="banner">
-                <div class="banner">
-                    <div class="banner-list">
-                        <div class="banner-main">
-                            <div class="banner1">
-                                <div class="item">
-                                    <a href=""><img src="images/banner/fold-6.png" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="images/banner/fold5.png" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="images/banner/galaxy-s24-sale.jpeg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""> <img src="images/banner/iphone-15-series-sale.jpeg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""> <img src="images/banner/oppo-reno-12.png" alt=""></a>
-                                </div>
-                            </div>
-                            <!-- button prev and next -->
-                            <div class="buttons">
-                                <button id="prev">
-                                    < </button>
-                                        <button id="next">></button>
-                            </div>
-                            <!-- dots -->
-                            <ul class="dots">
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="banner-second">
-                            <div class="banner2">
-                                <a href="">Giảm ngay 3 triệu khi đặt trước Iphone 16 Series tại SZ
-                                    <img src="./images/banner/fire.gif" style="width: 200px; height: 8px;" alt="">
-                                </a>
-                            </div>
-                            <div class="banner3">
-                                <a href=""><img src="./images/banner/Acer-Gaming.jpg" alt=""></a>
-                            </div>
-                            <div class="banner4">
-                                <a href=""><img src="./images/banner/tuf-gaming-f15.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- script Banner -->
-                <script src="/js/banner.js"></script>
-                <!-- Content -->
-
-
-
-            </div>
-
-            <!-- Hot Prod -->
-            <div class="hot-prod">
-                <!-- Điện thoại -->
-                <h2>Điện thoại nổi bật</h2>
-                <div class="prod-mobile">
-                    <div class="prod-mobile1">
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="prod-mobile2">
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="mobile-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- Laptop -->
-                <h2>Laptop</h2>
-                <div class="prod-laptop">
-                    <div class="prod-laptop1">
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-
-
-                    </div>
-                    <div class="prod-mobile2">
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/laptop/asus-vivobook-flip-tp470ea-i3-ec027t.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                                <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                                <div class="price">29.190.000đ <del>34.990.000</del></div>
-                                <div class="sale">Giảm 17%</div>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div class="love-icon">
-                                    <img src="images/hot-prod/cart-icon.png">
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
+        <article id="container" style="height: 2200px;" >
+           <iframe src="home.html" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
+        </article> 
+      
         <!-- Aside  -->
         <aside>
             <div class="contact">
@@ -674,7 +344,8 @@
 
         <!-- script Banner -->
         <script src="/js/banner.js"></script>
-
+        <!-- add To Cart  -->
+        <script src="js/addToCart.js"></script>
 
 
 

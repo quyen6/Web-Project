@@ -1,0 +1,83 @@
+.cart-layout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100%;
+    margin: auto 10px;
+}
+
+.cart-info {
+    flex: 1;
+}
+
+.cart-form {
+    flex: 1;
+  
+}
+
+.cart-form h3 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select,
+textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px 10px 0;
+}
+
+.radio-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.radio-option.selected {
+    background-color: #00a86b;
+    color: white;
+}
+
+.location-selects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-selects select {
+    width: 48%;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #00a86b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}

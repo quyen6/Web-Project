@@ -4,7 +4,7 @@ body {
     font-family: Roboto, sans-serif;
 }
 .cps-container {
-    width: 100%;
+    width: 80%;
     padding: 5px;
     margin: 0 auto;
     background-color: #f8f9fa;
@@ -42,14 +42,14 @@ body {
     width: 100%;
     padding: 10px;
     margin: 0 auto;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .list-brand >nav{
     display: flex; 
     flex-wrap: wrap;
     line-height: 40px;
-    color: white;   
+
 }
 
 .list-brand >nav >a{
