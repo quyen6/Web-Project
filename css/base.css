@@ -50,8 +50,17 @@ iframe{
 
 .app {
     margin: auto;
+<<<<<<< HEAD
     /* max-width: 100vmax; */
     width: auto;
+=======
+<<<<<<< HEAD
+
+=======
+    /* max-width: 100vmax; */
+    width: auto;
+>>>>>>> 34f9297 (new file)
+>>>>>>> ef497ef (new file)
 }
 
 
