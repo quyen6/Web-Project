@@ -15,19 +15,16 @@ if (!isLogin()) {
 }
 
 //Truy vấn vào bảng users
-$listUsers = getRaw("SELECT * FROM users ORDER BY update_at");
+$listUsers = getRaw("SELECT * FROM administrators ORDER BY update_at");
 
 $smg = getFLashData('smg');
 $smg_type = getFLashData('smg_type');
 // $errors = getFLashData('errors');
 // $old = getFLashData('old');
 ?>
-<div class="container">
+<div class="container" style="margin-top:100px;">
     <hr>
-    <h2>Quản lý người dùng</h2>
-    <p>
-        <a href="?module=users&action=add" class="btn btn-success btn-sm">Thêm người dùng <i class="fa-solid fa-plus"></i></a>
-    </p>
+    <h2>Thông tin cá nhân</h2>
     <?php
     if (!empty($smg)) {
         getSmg($smg, $smg_type);
@@ -35,7 +32,6 @@ $smg_type = getFLashData('smg_type');
     ?>
     <table class="table table-bordered">
         <thead>
-            <th>STT</th>
             <th>Họ tên</th>
             <th>Email</th>
             <th>Số điện thoại</th>
@@ -46,12 +42,9 @@ $smg_type = getFLashData('smg_type');
         <tbody>
             <?php
             if (!empty($listUsers)) :
-                $count = 0; //số thứ tự
                 foreach ($listUsers as $item) :
-                    $count++;
             ?>
                     <tr>
-                        <td><?php echo $count ?></td>
                         <td><?php echo $item['fullname'] ?></td>
                         <td><?php echo $item['email'] ?></td>
                         <td><?php echo $item['phone'] ?></td>

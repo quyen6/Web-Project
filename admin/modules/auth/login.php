@@ -19,27 +19,27 @@ if (isPost()) {
         $password = $filterAll['password'];
 
         //Truy vấn thông tin users theo email
-        $userQuery = oneRaw("SELECT password,id FROM users WHERE email ='$email'");
+        $adminQuery = oneRaw("SELECT password,id FROM administrators WHERE email ='$email'");
 
-        if (!empty($userQuery)) {
-            $passwordHash = $userQuery['password'];
-            $userId = $userQuery['id'];
+        if (!empty($adminQuery)) {
+            $passwordHash = $adminQuery['password'];
+            $adminId = $adminQuery['id'];
 
             if (password_verify($password, $passwordHash)) {
 
                 //Kiểm tra xem tài khoản đã login chưa
-                $userLogin = getRows("SELECT * FROM tokenlogin WHERE user_Id= '$userId'");
-                if ($userLogin > 0) {
-                    setFLashData('msg', 'Tài khoản đang đăng nhập ở 1 nơi khác!!');
-                    setFLashData('msg_type', 'danger');
-                    redirect('?module=auth&action=login');
-                } else {
+                // $adminLogin = getRows("SELECT * FROM tokenlogin WHERE admin_Id= '$adminId'");
+                // if ($adminLogin > 0) {
+                //     setFLashData('msg', 'Tài khoản đang đăng nhập ở 1 nơi khác!!');
+                //     setFLashData('msg_type', 'danger');
+                //     redirect('?module=auth&action=login');
+                // } else {
                     //Tạo token login
                     $tokenLogin = sha1(uniqid() . time());
 
                     //Insert vào bảng loginToken
                     $dataInsert = [
-                        'user_Id' => $userId,
+                        'admin_Id' => $adminId,
                         'token' => $tokenLogin,
                         'create_at' => date('Y-m-d H:i:s')
                     ];
@@ -54,7 +54,7 @@ if (isPost()) {
                         setFLashData('msg', 'Không thể đăng nhập, vui lòng đăng nhập lại sau!!');
                         setFLashData('msg_type', 'danger');
                     }
-                }
+                // }
             } else {
                 setFLashData('msg', 'Mật khẩu không chính xác');
                 setFLashData('msg_type', 'danger');
@@ -76,7 +76,7 @@ $msg_type = getFLashData('msg_type');
 
 <div class="row">
     <div class="col-4" style="margin: 50px auto;">
-        <h2 class="text-center text-uppercase">Đăng nhập quản lý Users</h2>
+        <h2 class="text-center text-uppercase">Đăng nhập quản lý sản phẩm</h2>
         <?php
         if (!empty($msg)) {
             getSmg($msg, $msg_type);
@@ -94,7 +94,6 @@ $msg_type = getFLashData('msg_type');
             <button type="submit" class="mg-btn btn btn-primary btn-block">Đăng nhập</button>
             <hr>
             <p class="text-center"><a href="?module=auth&action=forgot">Quên mật khẩu</a></p>
-            <p class="text-center"><a href="?module=auth&action=register">Đăng kí tài khoản</a></p>
         </form>
     </div>
 

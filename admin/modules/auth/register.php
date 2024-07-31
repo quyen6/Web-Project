@@ -33,7 +33,7 @@ if (isPost()) {
         $errors['email']['require'] = 'Email bắt buộc phải nhập';
     } else {
         $email = $filterAll['email'];
-        $sql = "SELECT id FROM users WHERE email= '$email'";
+        $sql = "SELECT id FROM administrators WHERE email= '$email'";
         if (getRows($sql) > 0) {
             $errors['email']['unique'] = 'Email đã tồn tại';
         }
@@ -79,7 +79,7 @@ if (isPost()) {
             'activeToken' => $activeToken,
             'create_at' => date('Y-m-d H:i:s'),
         ];
-        $insertStatus = insert('users', $dataInsert);
+        $insertStatus = insert('administrators', $dataInsert);
         if ($insertStatus) {
             setFLashData('smg', 'Đăng ký thành công');
             setFLashData('smg_type', 'success');
@@ -130,7 +130,7 @@ $old = getFLashData('old');
 
 <div class="row">
     <div class="col-4" style="margin: 50px auto;">
-        <h2 class="text-center text-uppercase">Đăng ký tài khoản Users</h2>
+        <h2 class="text-center text-uppercase">Đăng ký tài khoản Admin</h2>
         <?php
         if (!empty($smg)) {
             getSmg($smg, $smg_type);

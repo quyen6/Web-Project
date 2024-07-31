@@ -50,6 +50,8 @@ iframe{
 
 .app {
     margin: auto;
+    /* max-width: 100vmax; */
+    width: auto;
 }
 
 

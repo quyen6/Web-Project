@@ -1,7 +1,7 @@
 <?php
 
-const _MODULE = 'home';
-const _ACTION = 'dashboard';
+const _MODULE = 'auth';
+const _ACTION = 'login';
 
 const _CODE = true;
 

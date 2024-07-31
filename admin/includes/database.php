@@ -31,15 +31,18 @@ function query($sql, $data = [], $check = false)
 // Hàm insert vào data
 function insert($table, $data)
 {
+    $data = array_filter($data, function($value) {
+        return !is_null($value) && $value !== '';
+    });
+
     $key = array_keys($data);
     $truong = implode(',', $key);
     $valuetb = ':' . implode(',:', $key);
 
     $sql = "INSERT INTO $table ( $truong ) VALUES ( $valuetb )";
-    $kq =  query($sql, $data);
+    $kq = query($sql, $data);
     return $kq;
 }
-
 // Hàm update
 function update($table, $data, $condition = '')
 {

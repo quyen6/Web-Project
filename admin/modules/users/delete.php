@@ -7,15 +7,15 @@ if (!defined('_CODE')) {
 // XOá dữ liệu  bảng tokenlogin => xóa bảng users
 $filterAll = filter();
 if (!empty($filterAll['id'])) {
-    $userId = $filterAll['id'];
-    $userDetail = getRows("SELECT * FROM users WHERE id =$userId");
-    if ($userDetail > 0) {
+    $adminId = $filterAll['id'];
+    $adminDetail = getRows("SELECT * FROM administrators WHERE id =$adminId");
+    if ($adminDetail > 0) {
         //thực hiện xóa
-        $deleteToken = delete('tokenlogin', "user_Id=$userId");
+        $deleteToken = delete('tokenlogin', "admin_Id=$adminId");
         if ($deleteToken) {
-            // xóa user
-            $deleteUser = delete('users', "id=$userId");
-            if ($deleteUser) {
+            // xóa admin
+            $deleteAdmin = delete('administrators', "id=$adminId");
+            if ($deleteAdmin) {
                 setFLashData('smg', 'Xóa thành công !!');
                 setFLashData('smg_type', 'success');
             } else {

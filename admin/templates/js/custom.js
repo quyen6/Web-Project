@@ -1,16 +1,49 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const categorySelect = document.getElementById('cartegory_id');
+    const phoneSpecs = document.querySelector('.phone-specs');
+    const laptopSpecs = document.querySelector('.laptop-specs');
 
-    dropdownToggle.addEventListener('click', function(event) {
-        event.preventDefault();
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-    });
+    function toggleInputs(element, enable) {
+        const inputs = element.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.disabled = !enable;
+        });
+    }
 
-    document.addEventListener('click', function(event) {
-        if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.style.display = 'none';
+    categorySelect.addEventListener('change', function() {
+        if (this.value === '1') { // Điện thoại
+            phoneSpecs.style.display = 'block';
+            laptopSpecs.style.display = 'none';
+            toggleInputs(phoneSpecs, true);
+            toggleInputs(laptopSpecs, false);
+        } else if (this.value === '2') { // Laptop
+            phoneSpecs.style.display = 'none';
+            laptopSpecs.style.display = 'block';
+            toggleInputs(phoneSpecs, false);
+            toggleInputs(laptopSpecs, true);
+        } else {
+            phoneSpecs.style.display = 'none';
+            laptopSpecs.style.display = 'none';
+            toggleInputs(phoneSpecs, false);
+            toggleInputs(laptopSpecs, false);
         }
     });
 });
+// document.addEventListener('DOMContentLoaded', function () {
+//     const categorySelect = document.getElementById('cartegory_id');
+//     const phoneSpecs = document.querySelector('.phone-specs');
+//     const laptopSpecs = document.querySelector('.laptop-specs');
+
+//     categorySelect.addEventListener('change', function () {
+//         if (this.value === '1') { // Điện thoại
+//             phoneSpecs.style.display = 'block';
+//             laptopSpecs.style.display = 'none';
+//         } else if (this.value === '2') { // Laptop
+//             phoneSpecs.style.display = 'none';
+//             laptopSpecs.style.display = 'block';
+//         } else {
+//             phoneSpecs.style.display = 'none';
+//             laptopSpecs.style.display = 'none';
+//         }
+//     });
+// });
