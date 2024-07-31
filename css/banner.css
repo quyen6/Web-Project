@@ -5,12 +5,12 @@
   }
   
 .banner {
-    max-width: 1199px;
-    height: 350px;
+    max-width: 100%;
     /* position: absolute; */
     /* top: 35px; */
     /* position: absolute; */
     box-sizing: border-box;
+    overflow: hidden;
     
 }
 
@@ -33,7 +33,7 @@
 
 .banner1 {
     position: absolute;
-    height: 100%;
+
     display: flex;
     width: max-content;
 }
@@ -99,7 +99,7 @@
 .banner-second {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 5px;
     width: 260px;
     height: 310px;
 }
@@ -121,11 +121,13 @@
 
    
 .banner2 {
-    flex: 0.5;
+    flex: 0.3;
     background-color: rgb(172, 37, 37);
     position: relative;
-   box-shadow: 0 0 15px rgb(172, 37, 37);
-   animation: animate alternate 0.5s infinite;
+   box-shadow: 0 0 5px rgb(172, 37, 37);
+   animation: animate alternate 0.3s infinite;
+   margin: 3px 6px 0 0;
+
 
 }
 @keyframes animate {
@@ -142,14 +144,15 @@
     text-decoration: none;
     text-align: center;
     font-weight: bold;
-
+    padding-left: 5px;
 }
 .banner-second .banner2 img{
    position: absolute;
    top: -25px;
-   right: -95px;
+   right: -90px;
    
 }
+
 
 .banner3 {
     flex: 0.5;

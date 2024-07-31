@@ -18,16 +18,83 @@
             <h3>THÔNG TIN ĐẶT HÀNG</h3>
             <p><em>Bạn cần nhập đầy đủ các trường thông tin có dấu *</em></p>
             <form>
-                <input type="text" placeholder="Họ và tên *" required>
-                <input type="tel" placeholder="Số điện thoại *" required>
-                <input type="email" placeholder="Email">
+                <div class="fill-name">
+                    <input type="text" placeholder="Họ và tên *" required>
+                </div>
+                <div class="fill-tel">
+                    <input type="tel" placeholder="Số điện thoại *" required>
+                </div>
+                <div class="fill-email">
+                    <input type="email" placeholder="Email">
+                </div>
 
+                <div class="delivery-options">
+                    <strong>Hình thức nhận hàng</strong>
+                    <div class="option-container">
+                        <label class="option selected">
+                            <input type="radio" name="delivery" value="home" checked>
+                            <span class="checkmark"></span>
+                            Nhận hàng tại nhà
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="delivery" value="store">
+                            <span class="checkmark"></span>
+                            Nhận hàng tại cửa hàng
+                        </label>
+                    </div>
+                </div>
+                <script>document.querySelectorAll('.option').forEach(option => {
+                        option.addEventListener('click', function () {
+                            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                            this.classList.add('selected');
+                        });
+                    });</script>
 
+                <div id="homeDelivery" class="delivery-fields">
+                    <div class="address">
+                        <div class="province">
+                            <select>
+                                <option>Hà Nội</option>
+                            </select>
+                        </div>
+                        <div class="district">
+                            <select>
+                                <option>Quận/Huyện</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="detail-address">
+                        <input type="text" placeholder="Địa chỉ nhận hàng *">
+                    </div>
+                </div>
 
+                <div id="storePickup" class="delivery-fields" style="display:none;">
+                    <div class="store-address">
+                        <input type="text" value="Địa chỉ cửa hàng: Tiểu vương quốc Hóc Môn ">
+                    </div>
+                </div>
 
-                <textarea placeholder="Ghi chú" rows="4"></textarea>
+                <script>
+                    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+                        radio.addEventListener('change', function () {
+                            if (this.value === 'home') {
+                                document.getElementById('homeDelivery').style.display = 'block';
+                                document.getElementById('storePickup').style.display = 'none';
+                            } else {
+                                document.getElementById('homeDelivery').style.display = 'none';
+                                document.getElementById('storePickup').style.display = 'block';
+                            }
+                        });
+                    });
+                </script>
 
-                <button type="submit">XÁC NHẬN VÀ ĐẶT HÀNG</button>
+                <div class="note">
+                    <textarea placeholder="Ghi chú" rows="3"></textarea>
+                </div>
+
+                <div class="confirm">
+                    <button type="submit">XÁC NHẬN VÀ ĐẶT HÀNG</button>
+                </div>
             </form>
         </div>
     </div>

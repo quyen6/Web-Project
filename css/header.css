@@ -23,7 +23,7 @@
 /* CSS thanh tìm kiếm */
 .header-search {
     background-color: white;
-    width: 310px;
+    width: 20%;
     height: 35px;
     border-radius: 3px;
     position: relative;
@@ -236,7 +236,7 @@
 .all-samsung h4,
 .all-asus h4,
 .all-dell h4 {
-    margin: 10px;
+    margin: 10px 0px;
 }
 
 .navbar .navbar-list .mobile .all-mobile,
@@ -245,7 +245,7 @@
 .navbar .navbar-list .laptop .all-laptop,
 .navbar .navbar-list .asus .all-asus,
 .navbar .navbar-list .dell .all-dell {
-    width: 400px;
+    width: 30%;
     height: 220px;
     display: flex;
     border: 2px transparent;
@@ -253,38 +253,39 @@
     top: 60px;
     background-color: white;
     color: black;
-    left: 520px;
+    /* left: 520px; */
     border-radius: 10px;
     box-shadow: 0 0 5px gray;
     justify-content: space-between;
     display: none;
+    padding: 0 15px;
 
 
 }
 
 /* laptop */
-.navbar .navbar-list .laptop .all-laptop {
+/* .navbar .navbar-list .laptop .all-laptop {
     left: 800px;
-}
+} */
 
 /* iphone */
-.navbar .navbar-list .iphone .all-iphone {
+/* .navbar .navbar-list .iphone .all-iphone {
     left: 620px;
-}
+} */
 
 /* samsung */
-.navbar .navbar-list .samsung .all-samsung {
+/* .navbar .navbar-list .samsung .all-samsung {
     left: 680px;
-}
+} */
 
 /* asus */
-.navbar .navbar-list .asus .all-asus {
+/* .navbar .navbar-list .asus .all-asus {
     left: 820px;
-}
+} */
 /* dell */
-.navbar .navbar-list .dell .all-dell {
+/* .navbar .navbar-list .dell .all-dell {
     left: 900px;
-}
+} */
 
 
 
@@ -314,9 +315,14 @@
 {
     text-transform: none;
     transform: none;
-    padding: 0;
+    padding: 0; 
+    
     margin: 0;
-    border: none;
+     border: none;
+    /* display: flex; */
+    align-items: flex-start;
+   
+
 
 
 
@@ -336,6 +342,7 @@
 .navbar .navbar-list .dell:hover .all-dell
 {
     display: flex;
+    
 
 }
 

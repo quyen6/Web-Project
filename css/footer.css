@@ -9,7 +9,10 @@
     border-radius: 10px;
     font-size: 12.5px;
     max-width: 100%;
+    z-index: 1;
+    right: 0;
 }
+
 
 .ft-content-one {
     display: flex;

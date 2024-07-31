@@ -1,18 +1,21 @@
 .cart-layout {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 100%;
-    margin: auto 10px;
+    justify-content: space-evenly;
+    align-items: start;
+    background-color: rgb(255, 255, 255);
+    height: 30%;
+    margin: auto;
+    max-width: 1200px
 }
 
 .cart-info {
-    flex: 1;
+    width: 60%;
 }
 
 .cart-form {
-    flex: 1;
-  
+    width: 40%;
+    text-align: center;
+
 }
 
 .cart-form h3 {
@@ -24,60 +27,162 @@ form {
     flex-direction: column;
 }
 
-input,
-select,
-textarea {
+.fill-name input,
+.fill-tel input,
+.fill-email input,
+.note textarea {
     margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 95%;
+    line-height: 30px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
-.radio-group {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px 10px 0;
-}
-
-.radio-option {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.radio-option.selected {
-    background-color: #00a86b;
-    color: white;
-}
-
-.location-selects {
-    display: flex;
-    justify-content: space-between;
-}
-
-.location-selects select {
-    width: 48%;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
+.delivery-options  strong{
+    text-align: left;
+    display: block;
     margin-bottom: 10px;
 }
-
-.checkbox-group input {
-    margin-right: 10px;
+/* .cart-form .giaohang .hinhthucgiaohang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-button {
+.cart-form .giaohang .hinhthucgiaohang input{
+    font-size: 20px;
+} */
+
+
+  
+  .option-container {
+    display: flex;
+    gap: 15px ;
+    margin-bottom: 10px;
+    width: 100%;
+
+  }
+  
+  .option {
+    flex: 1;
+    display: inline-block;
+    position: relative;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    
+  }
+  
+  .option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+  }
+  
+  .option:hover input ~ .checkmark {
+    background-color: #f0f0f0;
+  }
+  
+  .option input:checked ~ .checkmark {
     background-color: #00a86b;
+    border-color: #00a86b;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .option input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .option .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  .option.selected {
+    border-color: #00a86b;
+    color: #00a86b;
+  }
+
+.address {
+    display: flex;
+    gap: 20px;
+  }
+.address select{
+
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 15px;
+    padding-left: 15px;
+}
+.address .province, .address .district {
+    flex: 1;
+}
+ .detail-address input{
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 95%;
+    line-height: 30px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.store-address input{
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 95%;
+    line-height: 30px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    font-size: 16px;
+}
+.confirm button {
+    width: 290px;
+    height: 60px;
+    background-color: rgba(0, 98, 83,0.8);
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 0 5px gray;
     cursor: pointer;
+   
+}
+.confirm button:hover {
+    background-color: rgb(1, 84, 71);
 }
