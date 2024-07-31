@@ -36,7 +36,7 @@ $listBrand = getRaw("SELECT * FROM brand");
 </head>
 
 <body>
-    
+
     <div class="home">
         <div class="banner">
             <div class="banner">
@@ -103,7 +103,7 @@ $listBrand = getRaw("SELECT * FROM brand");
             <h2>Điện thoại nổi bật</h2>
             <div class="prod-mobile">
                 <div class="prod-mobile1">
-                <?php
+                    <?php
                     if (!empty($listProduct)) :
                         foreach ($listProduct as $item) :
                             if ($item['cartegory_Id'] == '1') :
@@ -111,20 +111,20 @@ $listBrand = getRaw("SELECT * FROM brand");
                     ?>
                                 <div class="mobile-link">
                                     <a href="">
-                                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>" >
+                                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
                                         <div class="name"><?php echo $item['tenSanPham'] ?></div>
 
                                         <?php
-                                            if ($item['giam'] != '0') :
+                                        if ($item['giam'] != '0') :
                                         ?>
                                             <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
                                             <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
                                         <?php
-                                            else :
+                                        else :
                                         ?>
                                             <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
                                         <?php
-                                            endif;
+                                        endif;
                                         ?>
                                         <div class="tragop">Trả góp 0%</div>
                                         <div></div>
@@ -136,7 +136,7 @@ $listBrand = getRaw("SELECT * FROM brand");
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                            <img src="images/hot-prod/cart-icon.png" >
+                                            <img src="images/hot-prod/cart-icon.png">
                                         </div>
                                     </a>
                                 </div>
@@ -151,7 +151,6 @@ $listBrand = getRaw("SELECT * FROM brand");
             <h2>Laptop</h2>
             <div class="prod-laptop">
                 <div class="prod-laptop1">
-
                     <?php
                     if (!empty($listProduct)) :
                         foreach ($listProduct as $item) :
@@ -162,11 +161,15 @@ $listBrand = getRaw("SELECT * FROM brand");
                                     <a href="">
                                         <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
                                         <div class="name"><?php echo $item['tenSanPham'] ?></div>
-                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
                                         <?php
                                         if ($item['giam'] != '0') :
                                         ?>
                                             <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
+                                        <?php
+                                        else :
+                                        ?>
+                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
                                         <?php
                                         endif;
                                         ?>
