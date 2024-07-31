@@ -21,7 +21,7 @@ $listBrand = getRaw("SELECT * FROM brand");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/hot-prod.css">
+    <link rel="stylesheet" href="./css/hot-prod.css? ver= <?php echo rand() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <title>Document</title>
     <style>
@@ -175,6 +175,13 @@ $listBrand = getRaw("SELECT * FROM brand");
                                         ?>
                                         <div class="tragop">Trả góp 0%</div>
                                         <div class="love-icon">
+                                            <div class="detail-star">
+                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            </div>
                                             <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
                                         </div>
                                     </a>
