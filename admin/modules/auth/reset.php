@@ -11,9 +11,9 @@ layout('header-login');
 $token = filter()['token'];
 if (!empty($token)) {
     //Truy vấn csdl để kiểm tra token
-    $tokenQuery = oneRaw("SELECT id,fullname,email FROM users WHERE forgotToken='$token'");
+    $tokenQuery = oneRaw("SELECT id,fullname,email FROM administrators WHERE forgotToken='$token'");
     if (!empty($tokenQuery)) {
-        $userId = $tokenQuery['id'];
+        $adminId = $tokenQuery['id'];
         if (isPost()) {
             $filterAll = filter();
             $errors = []; //Mảng chứa lỗi
@@ -44,7 +44,7 @@ if (!empty($token)) {
                     'forgotToken' => null,
                     'update_at' => date('Y-m-d H:i:s'),
                 ];
-                $updateStatus = update('users', $dataUpdate, "id=$userId");
+                $updateStatus = update('users', $dataUpdate, "id=$adminId");
                 if ($updateStatus) {
                     setFLashData('smg', 'Thay đổi mật khẩu thành công!!');
                     setFLashData('smg_type', 'success');

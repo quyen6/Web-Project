@@ -16,9 +16,9 @@ if (isPost()) {
     if (!empty($filterAll['email'])) {
         $email = $filterAll['email'];
 
-        $queryUser = oneRaw("SELECT id FROM users WHERE email='$email'");
+        $queryUser = oneRaw("SELECT id FROM administrators WHERE email='$email'");
         if (!empty($queryUser)) {
-            $userId = $queryUser['id'];
+            $adminId = $queryUser['id'];
 
             //Tạo forgotToken
             $forgotToken = sha1(uniqid() . time());
@@ -26,7 +26,7 @@ if (isPost()) {
             $dataUpte = [
                 'forgotToken' => $forgotToken,
             ];
-            $updateStatus = update('users', $dataUpte, "id=$userId");
+            $updateStatus = update('administrators', $dataUpte, "id=$adminId");
 
             if ($updateStatus) {
                 //Tạo cái link reset, khôi phục mk

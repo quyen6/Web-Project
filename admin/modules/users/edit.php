@@ -4,11 +4,11 @@ if (!defined('_CODE')) {
 }
 $filterAll = filter();
 if (!empty($filterAll['id'])) {
-    $userId = $filterAll['id'];
+    $adminId = $filterAll['id'];
 
-    $userDetail = oneRaw("SELECT * FROM users WHERE id='$userId'");
-    if ($userDetail) {
-        setFLashData('user-dail', $userDetail);
+    $adminDetail = oneRaw("SELECT * FROM administrators WHERE id='$adminId'");
+    if ($adminDetail) {
+        setFLashData('admin-dail', $adminDetail);
     } else {
         redirect('?module=users&action=list');
     }
@@ -32,7 +32,7 @@ if (isPost()) {
         $errors['email']['require'] = 'Email bắt buộc phải nhập';
     } else {
         $email = $filterAll['email'];
-        $sql = "SELECT id FROM users WHERE email= '$email' AND id <> $userId";
+        $sql = "SELECT id FROM administrators WHERE email= '$email' AND id <> $adminId";
         if (getRows($sql) > 0) {
             $errors['email']['unique'] = 'Email đã tồn tại';
         }
@@ -82,8 +82,8 @@ if (isPost()) {
         if (!empty($filterAll['password'])) {
             $dataUpdate['password'] = password_hash($filterAll['password'], PASSWORD_DEFAULT);
         }
-        $condition = "id=$userId";
-        $updateStatus = update('users', $dataUpdate, $condition);
+        $condition = "id=$adminId";
+        $updateStatus = update('administrators', $dataUpdate, $condition);
         if ($updateStatus) {
             setFLashData('smg', 'Sửa thông tin thành công!!');
             setFLashData('smg_type', 'success');
@@ -97,7 +97,7 @@ if (isPost()) {
         setFLashData('errors', $errors);
         setFLashData('old', $filterAll['$old']);
     }
-    redirect('?module=users&action=edit&id=' . $userId);
+    redirect('?module=users&action=edit&id=' . $adminId);
 }
 
 layout('header-login');
@@ -106,9 +106,9 @@ $smg = getFLashData('smg');
 $smg_type = getFLashData('smg_type');
 $errors = getFLashData('errors');
 $old = getFLashData('old');
-$userDetailll = getFLashData('user-dail');
-if ($userDetailll) {
-    $old = $userDetailll;
+$adminDetailll = getFLashData('admin-dail');
+if ($adminDetailll) {
+    $old = $adminDetailll;
 }
 ?>
 
@@ -175,7 +175,7 @@ if ($userDetailll) {
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="id" value="<?php echo $userId ?>">
+            <input type="hidden" name="id" value="<?php echo $adminId ?>">
             <button type="submit" class="mg-btn-add btn btn-primary btn-block">Xác nhận</button>
             <a type="submit" href="?module=users&action=list" class="mg-btn-add btn btn-success btn-block">Quay lại</a></p>
         </form>

@@ -10,6 +10,10 @@ require_once "./admin/includes/phpmailer/SMTP.php";
 require_once "./admin/includes/function.php";
 require_once "./admin/includes/database.php";
 require_once "./admin/includes/session.php";
+
+$listProduct = getRaw("SELECT * FROM brand");
+$smg = getFLashData('smg');
+$smg_type = getFLashData('smg_type');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +39,25 @@ require_once "./admin/includes/session.php";
 
     <div class="list-brand">
         <nav>
-            <a href="#" class="list-brand_item"><span><i class="fa-brands fa-apple" style="margin-right: 5px; font-size: 18px;"></i>Apple</span> </a>
+            <?php
+            if (!empty($listProduct)) :
+                foreach ($listProduct as $item) :
+            ?>
+                    <a href="#" class="list-brand_item"><span><?php echo $item['name'] ?></span> </a>
+                    
+            <?php
+                endforeach;
+            endif;
+            ?>
+            <!-- <a href="#" class="list-brand_item"><span><i class="fa-brands fa-apple"
+                        style="margin-right: 5px; font-size: 18px;"></i>Apple</span> </a>
             <a href="#" class="list-brand_item"><span style="color: blue;">Samsung</span> </a>
             <a href="#" class="list-brand_item"><span style="color:green;">Oppo</span> </a>
             <a href="#" class="list-brand_item"><span style="color: gray;">xiaomi</span> </a>
             <a href="#" class="list-brand_item"><span style="color: rgb(35, 118, 226);">vivo</span> </a>
             <a href="#" class="list-brand_item"><span style="color: rgb(28, 118, 202);">nokia</span> </a>
-            <a href="#" class="list-brand_item"><span>sony</span> </a>
+            <a href="#" class="list-brand_item"><span>sony</span> </a> -->
+
         </nav>
     </div>
 
@@ -97,30 +113,8 @@ require_once "./admin/includes/session.php";
             </div>
         </div>
     </div>
-    <?php
-    $listUsers = getRaw("SELECT * FROM product");
-    echo "<pre>";
-    print_r($listUsers);
-    echo "</pre>";
-    $smg = getFLashData('smg');
-    $smg_type = getFLashData('smg_type');
-    ?>
-    <div class="column">
-        <div class="san-pham">
-            <?php
-            if (!empty($listUsers)) :
-                $count = 0; //số thứ tự
-                foreach ($listUsers as $item) :
-                    $count++;
-            ?>
-                    <div class="ten"><?php echo $item['name'] ?></div>
-                    <img src="<?php echo $item['main_image'] ?>">
-            <?php
-                endforeach;
-            endif;
-            ?>
-        </div>
-    </div>
+
+
 </body>
 
 </html>

@@ -168,7 +168,7 @@ function getSmg($smg, $type = 'success')
 }
 
 // Hàm điều hướng
-function redirect($path = 'index.php')
+function redirect($path='index.php')
 {
     header("Location: $path");
     exit;
@@ -194,7 +194,7 @@ function isLogin()
         $tokenLogin = getSession('tokenlogin');
 
         //Kiểm tra token có giống trong database
-        $queryToken = oneRaw("SELECT user_Id FROM tokenlogin WHERE token='$tokenLogin'");
+        $queryToken = oneRaw("SELECT admin_Id FROM tokenlogin WHERE token='$tokenLogin'");
 
         if (!empty($queryToken)) {
             $checkLogin = true;

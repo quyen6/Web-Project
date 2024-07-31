@@ -35,9 +35,14 @@ if (!empty($_GET['action'])) {
 }
 
 $path = 'modules/' . $module . '/' . $action . '.php';
-
 if (file_exists($path)) {
     require_once($path);
 } else {
     require_once 'modules/error/404.php';
 }
+
+if (!defined('_CODE')) {
+    die('Access denied...');
+}
+
+
