@@ -41,7 +41,7 @@ if (isPost()) {
         'thoiDiemRaMat' => $_POST['thoiDiemRaMat'] ?? '',
         'create_at' => date('Y-m-d H:i:s'),
     ];
-    move_uploaded_file($_FILES['anhSanPham']['tmp_name'], "C:/xampp/htdocs/Web_Project/admin/modules/auth/uploads/" . $_FILES['anhSanPham']['name']);
+    move_uploaded_file($_FILES['anhSanPham']['tmp_name'], "E:/xampp/htdocs/Web_Project/admin/modules/auth/uploads/" . $_FILES['anhSanPham']['name']);
     $insertStatus = insert('product', $dataInsert);
     if ($insertStatus) {
         setFLashData('smg', 'Thêm sản phẩm mới thành công!!');
