@@ -1,3 +1,19 @@
+<?php
+require_once "./admin/config.php";
+require_once "./admin/includes/connect.php";
+
+//Thư viện phpmailer
+require_once "./admin/includes/phpmailer/Exception.php";
+require_once "./admin/includes/phpmailer/PHPMailer.php";
+require_once "./admin/includes/phpmailer/SMTP.php";
+
+require_once "./admin/includes/function.php";
+require_once "./admin/includes/database.php";
+require_once "./admin/includes/session.php";
+$listProduct = getRaw("SELECT * FROM product");
+$listCartegory = getRaw("SELECT * FROM cartegory");
+$listBrand = getRaw("SELECT * FROM brand");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +29,7 @@
             justify-content: center;
             align-items: center;
             /* background-color: #f8f9fa; */
+            width: 100%;
 
 
         }
@@ -45,7 +62,8 @@
                         </div>
                         <!-- button prev and next -->
                         <div class="buttons">
-                            <button id="prev"> < </button>
+                            <button id="prev">
+                                < </button>
                                     <button id="next">></button>
                         </div>
                         <!-- dots -->
@@ -59,12 +77,12 @@
                     </div>
                     <div class="banner-second">
                         <div class="banner2">
-                            <a href="">Giảm ngay 3 triệu khi đặt trước Iphone 16 Series tại SZ
+                            <a href="">Giảm ngay 3 triệu khi <br>đặt trước Iphone 16 Series và Galaxy ZFold6 tại SZ
                                 <img src="./images/banner/fire.gif" style="width: 200px; height: 8px;" alt="">
                             </a>
                         </div>
                         <div class="banner3">
-                            <a href=""><img src="./images/banner/Acer-Gaming.jpg" alt=""></a>
+                            <a href=""><img src="./images/banner/Laptop-Dell-Gaming-G15-5535-banner.jpg" alt=""></a>
                         </div>
                         <div class="banner4">
                             <a href=""><img src="./images/banner/tuf-gaming-f15.jpg" alt=""></a>
@@ -86,131 +104,28 @@
             <h2>Điện thoại nổi bật</h2>
             <div class="prod-mobile">
                 <div class="prod-mobile1">
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-                <div class="prod-mobile2">
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png" id="count">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mobile-link">
-                        <a href="">
-                            <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
-                            <div class="name">Iphone 15 Pro Max 128GB | Chính hãng VN/A</div>
-                            <div class="price">29.190.000đ <del>34.990.000</del></div>
-                            <div class="sale">Giảm 17%</div>
-                            <div class="tragop">Trả góp 0%</div>
-                            <div class="love-icon">
-                                <img src="images/hot-prod/cart-icon.png">
-                            </div>
-                        </a>
-                    </div>
-
-
+                    <?php
+                    if (!empty($listProduct)) :
+                        foreach ($listProduct as $item) :
+                            if ($item['cartegory_Id'] == '1') :
+                    ?>
+                                <div class="mobile-link">
+                                    <a href="">
+                                        <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
+                                        <div class="name"><?php echo $item['tenSanPham'] ?></div>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
+                                        <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                        <div class="tragop">Trả góp 0%</div>
+                                        <div class="love-icon">
+                                            <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
+                                        </div>
+                                    </a>
+                                </div>
+                    <?php
+                            endif;
+                        endforeach;
+                    endif;
+                    ?>
                 </div>
             </div>
             <!-- Laptop -->
