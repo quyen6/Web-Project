@@ -38,6 +38,7 @@ $listBrand = getRaw("SELECT * FROM brand");
 </head>
 
 <body>
+    
     <div class="home">
         <div class="banner">
             <div class="banner">
@@ -104,14 +105,15 @@ $listBrand = getRaw("SELECT * FROM brand");
             <h2>Điện thoại nổi bật</h2>
             <div class="prod-mobile">
                 <div class="prod-mobile1">
-                    <?php
+                <?php
                     if (!empty($listProduct)) :
                         foreach ($listProduct as $item) :
                             if ($item['cartegory_Id'] == '1') :
+                                $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
                     ?>
                                 <div class="mobile-link">
                                     <a href="">
-                                        <img src="./images/hot-prod/mobile/iphone-15-pro-max.jpg" alt="">
+                                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>" >
                                         <div class="name"><?php echo $item['tenSanPham'] ?></div>
                                         <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
                                         <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
