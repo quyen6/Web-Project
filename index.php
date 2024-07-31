@@ -1,3 +1,20 @@
+<?php
+require_once "./admin/config.php";
+require_once "./admin/includes/connect.php";
+
+//Thư viện phpmailer
+require_once "./admin/includes/phpmailer/Exception.php";
+require_once "./admin/includes/phpmailer/PHPMailer.php";
+require_once "./admin/includes/phpmailer/SMTP.php";
+
+require_once "./admin/includes/function.php";
+require_once "./admin/includes/database.php";
+require_once "./admin/includes/session.php";
+
+$listProduct = getRaw("SELECT * FROM brand");
+$smg = getFLashData('smg');
+$smg_type = getFLashData('smg_type');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +33,6 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-
-
 </head>
 
 <body>
@@ -25,7 +40,7 @@
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <a href="home.html" target="page"><img src="" alt="Logo"></a>
+                <a href="trangchu.php" target="page"><img src="" alt="Logo"></a>
             </div>
 
             <form class="header-search">
@@ -48,18 +63,26 @@
                         </a>
                         <!-- menu con -->
                         <div class="all-mobile">
-                            <div class="brand">
-                                <h4>HÃNG SẢN XUẤT</h4>
-                                <a href="">Iphone</a>
-                                <a href="">Sam Sung</a>
-                                <a href="">Xiaomi</a>
-                                <a href="">Oppo</a>
-                                <a href="">Realme</a>
-                                <a href="">Vivo</a>
-                                <a href="">Nokia</a>
+                        <div class="brand">
+                            <h4>HÃNG SẢN XUẤT</h4>
+                            <?php
+                            if (!empty($listProduct)) :
+                                foreach ($listProduct as $item) :
+                                    // Kiểm tra nếu cateogory_Id của item bằng 1
+                                    if ($item['cartegory_Id'] == 1) :
+                        ?>
+                        <a href="">
+                        
+                                <?php echo $item['name'] ?>
+                       
+                        </a>
+                        <?php
+                                    endif;
+                                endforeach;
+                            endif;
+                        ?>
+                        </div>
 
-
-                            </div>
                             <div class="fillter-price">
                                 <h4>MỨC GIÁ</h4>
                                 <a href="">Dưới 2 triệu</a>
@@ -174,13 +197,22 @@
                         <div class="all-laptop">
                             <div class="brand">
                                 <h4>HÃNG SẢN XUẤT</h4>
-                                <a href="">Iphone</a>
-                                <a href="">Sam Sung</a>
-                                <a href="">Xiaomi</a>
-                                <a href="">Oppo</a>
-                                <a href="">Realme</a>
-                                <a href="">Vivo</a>
-                                <a href="">Nokia</a>
+                                <?php
+                            if (!empty($listProduct)) :
+                                foreach ($listProduct as $item) :
+                                    // Kiểm tra nếu cateogory_Id của item bằng 1
+                                    if ($item['cartegory_Id'] == 2) :
+                        ?>
+                        <a href="">
+                        
+                                <?php echo $item['name'] ?>
+                       
+                        </a>
+                        <?php
+                                    endif;
+                                endforeach;
+                            endif;
+                        ?>
 
 
                             </div>
@@ -195,7 +227,7 @@
 
                             </div>
                             <div class="hot-laptop">
-                                <h4>ĐIỆN THOẠI HOT </h4>
+                                <h4>LAPTOP HOT </h4>
                                 <a href="">Iphone 15 Pro Max</a>
                                 <a href="">Galaxy Z Flip6</a>
                                 <a href="">Galaxy Z Fold6</a>
@@ -321,7 +353,7 @@
 
         <!-- Main Container  -->
         <article id="container" style="height: 2200px;" >
-           <iframe src="home.html" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
+           <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
         </article> 
       
         <!-- Aside  -->
@@ -340,13 +372,6 @@
                 </div>
             </div>
         </aside>
-
-
-        <!-- script Banner -->
-        <script src="/js/banner.js"></script>
-        <!-- add To Cart  -->
-        <script src="js/addToCart.js"></script>
-
 
 
 
@@ -429,5 +454,4 @@
     </div>
     <script src="./js/popup.js"></script>
 </body>
-
 </html>

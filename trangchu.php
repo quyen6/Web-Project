@@ -31,11 +31,8 @@ $listBrand = getRaw("SELECT * FROM brand");
             align-items: center;
             /* background-color: #f8f9fa; */
             width: 100%;
-
-
         }
     </style>
-    <script src="js/addToCart.js"></script>
 </head>
 
 <body>
@@ -116,14 +113,18 @@ $listBrand = getRaw("SELECT * FROM brand");
                                     <a href="">
                                         <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>" >
                                         <div class="name"><?php echo $item['tenSanPham'] ?></div>
-                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
 
                                         <?php
-                                        if ($item['giam'] != '0') :
+                                            if ($item['giam'] != '0') :
                                         ?>
                                             <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
                                         <?php
-                                        endif;
+                                            else :
+                                        ?>
+                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
+                                        <?php
+                                            endif;
                                         ?>
                                         <div class="tragop">Trả góp 0%</div>
                                         <div></div>
@@ -135,7 +136,7 @@ $listBrand = getRaw("SELECT * FROM brand");
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                            <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
+                                            <img src="images/hot-prod/cart-icon.png" >
                                         </div>
                                     </a>
                                 </div>
@@ -186,6 +187,8 @@ $listBrand = getRaw("SELECT * FROM brand");
             </div>
         </div>
     </div>
+    <!-- script banner -->
+    <script src="js/banner.js"></script>
 </body>
 
 </html>

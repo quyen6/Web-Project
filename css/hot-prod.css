@@ -2,14 +2,14 @@
     width: 97%;
     height: 1660px;
     position: absolute;
-    top: 315px;
+    top: 320px;
     /* background-color: rgba(255, 255, 255, 0.1); */
     font-family: Roboto, sans-serif;
 }
 
 h2 {
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .prod-mobile,
@@ -40,6 +40,8 @@ h2 {
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 
@@ -52,18 +54,22 @@ h2 {
 .mobile-link .love-icon img,
 .laptop-link .love-icon img {
     width: 30px;
-    position: absolute;
+    /* position: absolute;
     padding: 0;
     bottom: 6px;
-    right: 5px;
+    right: 5px; */
 
 }
 
-.mobile-link .love-icon .detail-star {
-    align-items: flex-end;
+.mobile-link .love-icon  {
+   
     display: flex;
     font-size: 15px;
-    margin: 0 5px 0 5px;
+    margin: 10px 5px 0 5px;
+    justify-content: space-between;
+}
+.mobile-link .love-icon .detail-star {
+    margin-top: 10px;
 }
 
 
@@ -97,6 +103,7 @@ h2 {
 .laptop-link .name {
     text-align: start;
     padding-left: 5px;
+    height: 40px;
 }
 .mobile-link .price,
 .laptop-link .price {
@@ -106,7 +113,7 @@ h2 {
 }
 .mobile-link .price,
 .laptop-link .price {
-    margin-top: 38px;
+    margin-top: 10px;
     color: red;
     font-weight: bold;
     font-size: 18px;
