@@ -12,33 +12,16 @@ if (isPost()) {
         'kichThuocManHinh' => $_POST['kichThuocManHinh'] ?? '',
         'congNgheManHinh' => $_POST['congNgheManHinh'] ?? '',
         'doPhanGiaiManHinh' => $_POST['dophangiai'] ?? '',
-        'tanSoQuet' => $_POST['tansoquet'] ?? '',
-        'manHinhCamUng' => $_POST['manHinhCamUng'] ?? '',
-        'chatLieuTamNen' => $_POST['chatLieuTamNen'] ?? '',
         'cameraSau' => $_POST['cameraSau'] ?? '',
-        'quayVideoSau' => $_POST['quayVideoSau'] ?? '',
         'cameraTruoc' => $_POST['cameraTruoc'],
-        'quayVideoTruoc' => $_POST['quayVideoTruoc'] ?? '',
         'chipset' => $_POST['chipset'] ?? '',
-        'loaiCPU' => $_POST['loaiCPU'] ?? '',
-        'GPU' => $_POST['GPU'] ?? '',
         'cardDoHoa' => $_POST['cardDoHoa'] ?? '',
         'dungLuongRam' => $_POST['dungLuongRam'] ?? '',
         'boNhoTrong' => $_POST['boNhoTrong'] ?? '',
-        'kheCamTheNho' => $_POST['kheCamTheNho'] ?? '',
         'LoaiRam' => $_POST['LoaiRam'] ?? '',
         'oCung' => $_POST['oCung'] ?? '',
         'pin' => $_POST['pin'] ?? '',
-        'congSac' => $_POST['congSac'] ?? '',
-        'kichThuoc' => $_POST['kichThuoc'] ?? '',
-        'trongLuong' => $_POST['trongLuong'] ?? '',
-        'chatLieuMatLung' => $_POST['chatLieuMatLung'] ?? '',
-        'chatLieuKhungVien' => $_POST['chatLieuKhungVien'] ?? '',
         'heDieuHanh' => $_POST['heDieuHanh'] ?? '',
-        'wiFi' => $_POST['wiFi'] ?? '',
-        'BlueTooth' => $_POST['Btooth'] ?? '',
-        'tinhNangDacBiet' => $_POST['tinhNangDacBiet'] ?? '',
-        'thoiDiemRaMat' => $_POST['thoiDiemRaMat'] ?? '',
         'create_at' => date('Y-m-d H:i:s'),
     ];
     move_uploaded_file($_FILES['anhSanPham']['tmp_name'], "E:/xampp/htdocs/Web_Project/admin/modules/auth/uploads/" . $_FILES['anhSanPham']['name']);
@@ -117,7 +100,6 @@ $listBrand = getRaw("SELECT * FROM brand");
             <br>
             <div class="phone-specs">
                 <h2>Thông số kỹ thuật</h2>
-                <h3>Màn hình</h3>
                 <br>
                 <label for="">Kích thước màn hình</label>
                 <input name="kichThuocManHinh" type="text" placeholder="Kích thước màn hình">
@@ -125,118 +107,41 @@ $listBrand = getRaw("SELECT * FROM brand");
                 <input name="congNgheManHinh" type="text" placeholder="Công nghệ màn hình">
                 <label for="">Độ phân giải màn hình</label>
                 <input name="dophangiai" type="text" placeholder="Độ phân giải màn hình">
-                <label for="">Tần số quét</label>
-                <input name="tansoquet" type="text" placeholder="Tần số quét">
-                <h3>Camera sau</h3>
-                <br>
                 <label for="">Camera sau</label>
                 <input name="cameraSau" type="text" placeholder="Camera sau">
-                <label for="">Quay video</label>
-                <input name="quayVideoSau" type="text" placeholder="Quay video">
-                <h3>Camera trước</h3><br>
                 <label for="">Camera trước</label>
                 <input name="cameraTruoc" type="text" placeholder="Camera trước">
-                <label for="">Quay video trước</label>
-                <input name="quayVideoTruoc" type="text" placeholder="Quay video trước">
-                <h3>Vi xử lý & đồ họa</h3>
-                <br>
                 <label for="">Chipset</label>
                 <input name="chipset" type="text" placeholder="Chipset">
-                <label for="">Loại CPU</label>
-                <input name="loaiCPU" type="text" placeholder="Loại CPU">
-                <label for="">GPU</label>
-                <input name="GPU" type="text" placeholder="GPU">
-                <h3>VRAM & lưu trữ</h3>
-                <br>
                 <label for="">Dung lượng RAM</label>
                 <input name="dungLuongRam" type="text" placeholder="Dung lượng RAM">
                 <label for="">Bộ nhớ trong</label>
                 <input name="boNhoTrong" type="text" placeholder="Bộ nhớ trong">
-                <label for="">Khe cắm thẻ nhớ</label>
-                <input name="kheCamTheNho" type="text" placeholder="Khe cắm thẻ nhớ">
-                <h3>Pin & công nghệ sạc</h3>
-                <br>
                 <label for="">Pin</label>
                 <input name="pin" type="text" placeholder="Pin">
-                <label for="">Cổng sạc</label>
-                <input name="congSac" type="text" placeholder="Cổng sạc">
-                <h3>Thiết kế & Trọng lượng</h3>
-                <br>
-                <label for="">Kích thước</label>
-                <input name="kichThuoc" type="text" placeholder="Kích thước">
-                <label for="">Trọng lượng</label>
-                <input name="trongLuong" type="text" placeholder="Trọng lượng">
-                <label for="">Chất liệu mặt lưng</label>
-                <input name="chatLieuMatLung" type="text" placeholder="Chất liệu mặt lưng">
-                <label for="">Chất liệu khung viền</label>
-                <input name="chatLieuKhungVien" type="text" placeholder="Chất liệu khung viền">
-                <h3>Giao tiếp & kết nối</h3>
-                <br>
                 <label for="">Hệ điều hành</label>
                 <input name="heDieuHanh" type="text" placeholder="Hệ điều hành">
-                <label for="">Wi-Fi</label>
-                <input name="wiFi" type="text" placeholder="Wi-Fi">
-                <label for="">Bluetooth</label>
-                <input name="Btooth" type="text" placeholder="Bluetooth">
-                <h3>Thông tin chung</h3>
-                <br>
-                <label for="">Thời điểm ra mắt</label>
-                <input name="thoiDiemRaMat" type="text" placeholder="Thời điểm ra mắt">
             </div>
             <div class="laptop-specs">
                 <h2>Thông số kỹ thuật</h2>
-                <h3>Màn hình</h3>
-                <br>
-                <label for="">Màn hình cảm ứng</label>
-                <input name="manHinhCamUng" type="text" placeholder="Màn hình cảm ứng">
-                <label for="">Chất liệu tấm nền</label>
-                <input name="chatLieuTamNen" type="text" placeholder="Chất liệu tấm nền">
-                <label for="">Tần số quét</label>
-                <input name="tanSoQuet" type="text" placeholder="Tần số quét">
-                <label for="">Kích thước màn hình</label>
-                <input name="kichThuocManHinh" type="text" placeholder="Kích thước màn hình">
-                <label for="">Độ phân giải màn hình</label>
-                <input name="doPhanGiaiManHinh" type="text" placeholder="Độ phân giải màn hình">
-                <h3>Vi xử lý & đồ họa</h3>
-                <br>
                 <label for="">Loại card đồ họa</label>
                 <input name="cardDoHoa" type="text" placeholder="Loại card đồ họa">
-                <label for="">Loại CPU</label>
-                <input name="loaiCPU" type="text" placeholder="Loại CPU">
-                <h3>RAM & Ổ cứng</h3>
-                <br>
                 <label for="">Dung lượng RAM</label>
                 <input name="dungLuongRam" type="text" placeholder="Dung lượng RAM">
                 <label for="">Loại RAM</label>
                 <input name="LoaiRam" type="text" placeholder="Loại RAM">
                 <label for="">Ổ cứng</label>
                 <input name="oCung" type="text" placeholder="Ổ cứng">
-                <h3>Pin</h3>
-                <br>
+                <label for="">Kích thước màn hình</label>
+                <input name="kichThuocManHinh" type="text" placeholder="Kích thước màn hình">
+                <label for="">Công nghệ màn hình</label>
+                <input name="congNgheManHinh" type="text" placeholder="Công nghệ màn hình">
                 <label for="">Pin</label>
-                <input name="kichThuoc" type="text" placeholder="Pin">
-                <h3>Thiết kế & Trọng lượng</h3>
-                <br>
-                <label for="">Kích thước</label>
-                <input name="kichThuoc" type="text" placeholder="Kích thước">
-                <label for="">Trọng lượng</label>
-                <input name="trongLuong" type="text" placeholder="Trọng lượng">
-                <h3>Giao tiếp & kết nối</h3>
-                <br>
+                <input name="pin" type="text" placeholder="Pin">
                 <label for="heDieuHanh">Hệ điều hành</label>
                 <input name="heDieuHanh" type="text" placeholder="Hệ điều hành">
-                <label for="">Wi-Fi</label>
-                <input name="wiFi" type="text" placeholder="Wi-Fi">
-                <label for="">Bluetooth</label>
-                <input name="bluetooth" type="text" placeholder="Bluetooth">
-                <h3>Tiện ích khác</h3>
-                <br>
-                <label for="">Tính năng đặc biệt</label>
-                <input name="tinhNangDacBiet" type="text" placeholder="Tính năng đặc biệt">
-                <h3>Thông tin chung</h3>
-                <br>
-                <label for="">Thời điểm ra mắt</label>
-                <input name="thoiDiemRaMat" type="text" placeholder="Thời điểm ra mắt">
+                <label for="">Độ phân giải màn hình</label>
+                <input name="doPhanGiaiManHinh" type="text" placeholder="Độ phân giải màn hình">
             </div>
             <button type="submit">Thêm</button>
         </form>
@@ -252,6 +157,22 @@ $listBrand = getRaw("SELECT * FROM brand");
                     $("#brand_id").html(data);
                 });
             });
+            function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+            $('input[name="giaSanPham"], input[name="giam"]').on('input', function() {
+                var giaSanPham = parseFloat($('input[name="giaSanPham"]').val()) || 0;
+                var giam = parseFloat($('input[name="giam"]').val()) || 0;
+
+                var giaKhuyenMai = giaSanPham - (giaSanPham * giam / 100);
+                giaKhuyenMai = Math.round(giaKhuyenMai * 100) / 100; // Round to 2 decimal places
+
+                $('input[name="giaKhuyenMai"]').val(formatNumber(giaKhuyenMai));
+            });
+            $('input[name="giaSanPham"]').on('blur', function() {
+            var value = $(this).val().replace(/\./g, '');
+            $(this).val(formatNumber(value));
+        });
         });
     </script>
 </body>

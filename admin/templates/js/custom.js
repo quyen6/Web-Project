@@ -29,21 +29,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-// document.addEventListener('DOMContentLoaded', function () {
-//     const categorySelect = document.getElementById('cartegory_id');
-//     const phoneSpecs = document.querySelector('.phone-specs');
-//     const laptopSpecs = document.querySelector('.laptop-specs');
 
-//     categorySelect.addEventListener('change', function () {
-//         if (this.value === '1') { // Điện thoại
-//             phoneSpecs.style.display = 'block';
-//             laptopSpecs.style.display = 'none';
-//         } else if (this.value === '2') { // Laptop
-//             phoneSpecs.style.display = 'none';
-//             laptopSpecs.style.display = 'block';
-//         } else {
-//             phoneSpecs.style.display = 'none';
-//             laptopSpecs.style.display = 'none';
-//         }
-//     });
-// });
