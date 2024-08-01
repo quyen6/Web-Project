@@ -1,4 +1,27 @@
 <?php
+
+session_start();
+
+if (isset($_POST['add-product'])) {
+    $productId = $_POST['id'];
+
+    // Thực hiện các thao tác với ID sản phẩm, ví dụ: thêm vào giỏ hàng
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
+
+    // Thêm ID sản phẩm vào giỏ hàng
+    if (!in_array($productId, $_SESSION['cart'])) {
+        $_SESSION['cart'][] = $productId;
+    }
+
+    echo "Sản phẩm với ID $productId đã được thêm vào giỏ hàng.";
+} else {
+    echo "Không có ID sản phẩm.";
+}
+
+
+
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
 
@@ -102,13 +125,25 @@ $listBrand = getRaw("SELECT * FROM brand");
             <!-- Điện thoại -->
             <h2>Điện thoại nổi bật</h2>
             <div class="prod-mobile">
-                <div class="prod-mobile1">
-                    <?php
-                    if (!empty($listProduct)) :
-                        foreach ($listProduct as $item) :
-                            if ($item['cartegory_Id'] == '1') :
+                    <div class="prod-mobile1">
+                        <?php
+                        //  Lọc sản phẩm theo danh mục
+                        $filteredProducts = array_filter($listProduct, function($item) {
+                            return $item['cartegory_Id'] == '1';
+                        });
+
+                        //  Trộn danh sách sản phẩm
+                        // shuffle($filteredProducts);
+
+                        //  Lấy 20 sản phẩm đầu tiên
+                        $selectedProducts = array_slice($filteredProducts, 0, 20);
+
+                        if (!empty($selectedProducts)) :
+                            foreach ($selectedProducts as $item) :
                                 $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
-                    ?>
+                        ?>
+
+                                    
                                 <div class="mobile-link">
                                     <a href="">
                                         <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
@@ -136,24 +171,42 @@ $listBrand = getRaw("SELECT * FROM brand");
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                            <img src="images/hot-prod/cart-icon.png">
+                                           <button class="add-product" value ="<?php echo $item['id']; ?>" 
+                                           >
+                                           <!-- <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>"> -->
+                                           <img src="images/hot-prod/cart-icon.png">
+                                           </button>
+                              
                                         </div>
                                     </a>
                                 </div>
-                    <?php
-                            endif;
-                        endforeach;
-                    endif;
-                    ?>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
                 </div>
-            </div>
+
+
             <!-- Laptop -->
             <h2>Laptop</h2>
             <div class="prod-laptop">
                 <div class="prod-laptop1">
+                <?php
+                        // Bước 1: Lọc sản phẩm theo danh mục
+                        $filteredProducts = array_filter($listProduct, function($item) {
+                            return $item['cartegory_Id'] == '2';
+                        });
+
+                        // Bước 2: Trộn danh sách sản phẩm
+                        // shuffle($filteredProducts);
+
+                        // Bước 3: Lấy 15 sản phẩm đầu tiên
+                        $selectedProducts = array_slice($filteredProducts, 0, 20);
+                    ?>
                     <?php
-                    if (!empty($listProduct)) :
-                        foreach ($listProduct as $item) :
+                    if (!empty($selectedProducts)) :
+                        foreach ($selectedProducts as $item) :
                             if ($item['cartegory_Id'] == '2') :
                                 $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
                     ?>
@@ -199,6 +252,8 @@ $listBrand = getRaw("SELECT * FROM brand");
     </div>
     <!-- script banner -->
     <script src="js/banner.js"></script>
+
+
 </body>
 
 </html>

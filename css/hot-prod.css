@@ -30,6 +30,8 @@ h2 {
     border-radius: 10px;
     font-size: 14px;
     position: relative;
+    flex: 1 1 calc(20% - 10px); /* Điều chỉnh 20% cho 5 sản phẩm mỗi hàng, trừ khoảng cách */
+    box-sizing: border-box;
 }
 
 .prod-mobile1,
@@ -37,7 +39,9 @@ h2 {
 .prod-laptop1,
 .prod-laptop2 {
     display: flex;
-    justify-content: space-between;
+    /* float: left; */
+
+    /* justify-content: space-between; */
     box-sizing: border-box;
     width: 100%;
     flex-wrap: wrap;
@@ -58,34 +62,31 @@ h2 {
     padding: 0;
     bottom: 6px;
     right: 5px; */
+   
 
 }
 
-.mobile-link .love-icon {
+.mobile-link .love-icon , .laptop-link .love-icon{
 
     display: flex;
     font-size: 15px;
-    margin: 10px 5px 0 5px;
+    margin: 5px 5px 0 5px;
     justify-content: space-between;
 }
 
-.mobile-link .love-icon .detail-star {
-    margin-top: 10px;
-}
-.laptop-link .love-icon {
-
-    display: flex;
-    font-size: 15px;
-    margin: 10px 5px 0 5px;
-    justify-content: space-between;
-}
-
-.laptop-link .love-icon .detail-star {
+.mobile-link .love-icon .detail-star, .laptop-link .love-icon .detail-star {
     margin-top: 10px;
 }
 
 .love-icon img:hover {
     transform: scale(1.05);
+
+}
+
+.love-icon button {
+    border: transparent;
+    background-color: white;
+    padding-bottom: 0;
 }
 
 
@@ -114,7 +115,7 @@ h2 {
 .laptop-link .name {
     text-align: start;
     padding-left: 5px;
-    height: 40px;
+    height: 45px;
 }
 
 .mobile-link .price,

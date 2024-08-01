@@ -56,7 +56,7 @@ $smg_type = getFLashData('smg_type');
             <nav class="navbar">
                 <div class="navbar-list">
                     <div class="mobile">
-                        <a href="mobile.html" target="page">
+                        <a href="mobile.php" target="page">
                             <img class="navbar-item-icon-img" src="./images/header-icon/mobile-icon.jpg">
                             <span>Điện Thoại</span>
 
@@ -331,7 +331,7 @@ $smg_type = getFLashData('smg_type');
 
             </nav>
 
-            <div class="header-cart">
+            <div class="header-cart" >
                 <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="./images/header-icon/cart-icon.png"
                         style="width: 25px; height: 30px;;">
                     <span class="cart-quantity-item" id="count">
@@ -352,7 +352,7 @@ $smg_type = getFLashData('smg_type');
 
 
         <!-- Main Container  -->
-        <article id="container" style="height: 2200px;" >
+        <article id="container" style="height: 4000px;" >
            <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
         </article> 
       
