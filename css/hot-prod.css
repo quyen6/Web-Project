@@ -19,8 +19,9 @@ h2 {
 
 .mobile-link,
 .laptop-link {
-    width: 230px;
-    height: 370px;
+    width: calc(20% - 10px); /* 5 sản phẩm mỗi hàng, trừ đi gap */
+    max-width: 230px; /* Giới hạn kích thước tối đa */
+    height: auto;
     box-shadow: 0 0 7px gray;
     border-radius: 10px;
     text-align: center;
@@ -30,8 +31,11 @@ h2 {
     border-radius: 10px;
     font-size: 14px;
     position: relative;
-    flex: 1 1 calc(20% - 10px); /* Điều chỉnh 20% cho 5 sản phẩm mỗi hàng, trừ khoảng cách */
     box-sizing: border-box;
+    margin-bottom: 10px; /* Thêm khoảng cách dưới */
+    flex: 0 0 auto;
+   
+    
 }
 
 .prod-mobile1,
@@ -87,6 +91,7 @@ h2 {
     border: transparent;
     background-color: white;
     padding-bottom: 0;
+    border-radius: 10px;
 }
 
 
@@ -101,14 +106,14 @@ h2 {
     width: 200px;
     height: 250px;
     padding: 25px 0;
-
+    box-sizing: border-box;
 }
 
 .laptop-link>a>img {
     width: 200px;
     height: 250px;
     padding: 25px 0;
-
+   box-sizing: border-box;
 }
 
 .mobile-link .name,

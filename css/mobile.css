@@ -2,12 +2,19 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: Roboto, sans-serif;
-}
-.mobile-container {
-    width: 100%;
-    padding: 5px;
-    margin: 0 auto;
+    overflow-x: hidden;
     background-color: #f8f9fa;
+    /* height: 4000px; */
+    /* overflow-y: hidden; */
+   
+}
+.mobile-container, .laptop-container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    height: 90%;
+    /* background-color: #f8f9fa; */
+    /* overflow: hidden; */
 
 }
 
@@ -84,7 +91,7 @@ body {
     color: #4a4a4a;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .condition .filter-sort_list-filter{
@@ -92,7 +99,7 @@ body {
     overflow-x: auto;
     width: 100%;
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .condition .filter-sort_list-filter .btn-filter{

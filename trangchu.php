@@ -1,26 +1,6 @@
 <?php
 session_start();
 
-if (isset($_POST['add-product'])) {
-    $productId = $_POST['id'];
-
-    // Thực hiện các thao tác với ID sản phẩm, ví dụ: thêm vào giỏ hàng
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Thêm ID sản phẩm vào giỏ hàng
-    if (!in_array($productId, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $productId;
-    }
-
-    echo "Sản phẩm với ID $productId đã được thêm vào giỏ hàng.";
-} else {
-    echo "Không có ID sản phẩm.";
-}
-
-
-
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
 
@@ -175,8 +155,8 @@ $listBrand = getRaw("SELECT * FROM brand");
                                            <img src="images/hot-prod/cart-icon.png">
                                            </button> -->
                                            <form action="update_cart.php" method="POST">
-                                                    <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
-                                                </form>
+                                            <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
+                                            </form>
                                                                                     
                                         </div>
                                     </a>
@@ -236,7 +216,9 @@ $listBrand = getRaw("SELECT * FROM brand");
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                            <img src="images/hot-prod/cart-icon.png" onclick="updateCount()">
+                                            <form action="update_cart.php" method="POST">
+                                            <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
+                                            </form>
                                         </div>
                                     </a>
                                 </div>
