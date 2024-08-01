@@ -12,7 +12,7 @@
     <div class="cart-layout" >
         <div class="cart-info" id="cart">
             
-            
+            hiiiiiiii
         </div>
         <div class="cart-form">
             <h3>THÔNG TIN ĐẶT HÀNG</h3>
@@ -43,12 +43,6 @@
                         </label>
                     </div>
                 </div>
-                <script>document.querySelectorAll('.option').forEach(option => {
-                        option.addEventListener('click', function () {
-                            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-                            this.classList.add('selected');
-                        });
-                    });</script>
 
                 <div id="homeDelivery" class="delivery-fields">
                     <div class="address">
@@ -74,20 +68,6 @@
                     </div>
                 </div>
 
-                <script>
-                    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
-                        radio.addEventListener('change', function () {
-                            if (this.value === 'home') {
-                                document.getElementById('homeDelivery').style.display = 'block';
-                                document.getElementById('storePickup').style.display = 'none';
-                            } else {
-                                document.getElementById('homeDelivery').style.display = 'none';
-                                document.getElementById('storePickup').style.display = 'block';
-                            }
-                        });
-                    });
-                </script>
-
                 <div class="note">
                     <textarea placeholder="Ghi chú" rows="3"></textarea>
                 </div>
@@ -98,6 +78,8 @@
             </form>
         </div>
     </div>
+    <!-- Link js -->
+<script src="js/cart-orderInfo.js"></script>
 </body>
 
 </html>

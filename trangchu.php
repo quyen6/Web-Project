@@ -1,27 +1,5 @@
 <?php
-
 session_start();
-
-if (isset($_POST['add-product'])) {
-    $productId = $_POST['id'];
-
-    // Thực hiện các thao tác với ID sản phẩm, ví dụ: thêm vào giỏ hàng
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Thêm ID sản phẩm vào giỏ hàng
-    if (!in_array($productId, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $productId;
-    }
-
-    echo "Sản phẩm với ID $productId đã được thêm vào giỏ hàng.";
-} else {
-    echo "Không có ID sản phẩm.";
-}
-
-
-
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
 
@@ -171,12 +149,14 @@ $listBrand = getRaw("SELECT * FROM brand");
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                           <button class="add-product" value ="<?php echo $item['id']; ?>" 
-                                           >
-                                           <!-- <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>"> -->
+                                           <!-- <button class="add-product" id="add-to-cart" data-id="<?php echo $item['id']; ?>">
+                                           <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
                                            <img src="images/hot-prod/cart-icon.png">
-                                           </button>
-                              
+                                           </button> -->
+                                           <form action="update_cart.php" method="POST">
+                                                    <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
+                                                </form>
+                                                                                    
                                         </div>
                                     </a>
                                 </div>
@@ -252,7 +232,27 @@ $listBrand = getRaw("SELECT * FROM brand");
     </div>
     <!-- script banner -->
     <script src="js/banner.js"></script>
+    <!-- script cart -->
 
+    <!-- <script src="js/cart-orderInfo.js"></script> -->
+
+    <!-- <script>
+    document.getElementById('add-to-cart').addEventListener('click', function() {
+    fetch('update_cart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'update_cart=1'
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('cart_count').innerText = data;
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+    </script> -->
 
 </body>
 
