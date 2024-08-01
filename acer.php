@@ -53,8 +53,7 @@ $smg_type = getFLashData('smg_type');
     <div class="mobile-container">
         <ul class="nav-list">
             <li><a href="<?php echo _WEB_HOST_1 ?>/trangchu.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
-            <li><a href="<?php echo _WEB_HOST_1 ?>/mobile.php" target="page"><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Điện
-                    thoại</a>
+            <li><a href="<?php echo _WEB_HOST_1 ?>/laptop.php" target="page"><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Laptop</a>
             </li>
             <li><a href=""><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>
                     <?php
@@ -90,14 +89,14 @@ $smg_type = getFLashData('smg_type');
 
                 <div class="filter-memory">
                     <button class="btn-filter">
-                        Bộ nhớ trong
+                        Dung lượng RAM
                         <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </button>
                 </div>
 
                 <div class="filter-capacityRam">
                     <button class="btn-filter">
-                        Dung lượng RAM
+                        Ổ cứng
                         <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </button>
                 </div>
@@ -122,17 +121,15 @@ $smg_type = getFLashData('smg_type');
             </div>
         </div>
 
-        <div class="prod-mobile">
-            <div class="prod-mobile1">
+        <div class="prod-laptop">
+            <div class="prod-laptop1">
                 <?php
                 if (!empty($listProduct)) :
                     foreach ($listProduct as $item) :
-                        if ($item['brand_Id'] == $brandId && $item['cartegory_Id'] == '1') :
+                        if ($item['brand_Id'] == $brandId && $item['cartegory_Id'] == '2') :
                             $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
                 ?>
-
-
-                            <div class="mobile-link">
+                            <div class="laptop-link">
                                 <a href="">
                                     <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
                                     <div class="name"><?php echo $item['tenSanPham'] ?></div>
