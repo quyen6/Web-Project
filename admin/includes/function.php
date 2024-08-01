@@ -12,7 +12,12 @@ function layout($layoutName = 'header', $data = [])
         require_once(_WEB_PATH_TEMPLATES . '/layout/' . $layoutName . '.php');
     }
 }
-
+function layout_a($layoutName = 'header', $data = [])
+{
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/' . $layoutName . '.php')) {
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/' . $layoutName . '.php');
+    }
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

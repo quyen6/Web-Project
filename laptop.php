@@ -41,8 +41,7 @@ $smg_type = getFLashData('smg_type');
     <div class="mobile-container">
         <ul class="nav-list">
             <li><a href="/index.html"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
-            <li><a href=""><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Điện
-                    thoại</a>
+            <li><a href=""><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Laptop</a>
             </li>
         </ul>
         <div class="clear"></div>
@@ -52,7 +51,7 @@ $smg_type = getFLashData('smg_type');
                 <?php
                 if (!empty($listBrand)) :
                     foreach ($listBrand as $item) :
-                        if ($item['cartegory_Id'] == '1') :
+                        if ($item['cartegory_Id'] == '2') :
                 ?>
                             <a href="#" class="list-brand_item"><span><?php echo $item['name'] ?></span> </a>
 
@@ -85,14 +84,14 @@ $smg_type = getFLashData('smg_type');
 
                 <div class="filter-memory">
                     <button class="btn-filter">
-                        Bộ nhớ trong
+                        Dung lượng RAM
                         <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </button>
                 </div>
 
                 <div class="filter-capacityRam">
                     <button class="btn-filter">
-                        Dung lượng RAM
+                        Ổ cứng
                         <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i>
                     </button>
                 </div>
@@ -117,12 +116,12 @@ $smg_type = getFLashData('smg_type');
             </div>
         </div>
 
-        <div class="prod-mobile">
-            <div class="prod-mobile1">
+        <div class="prod-laptop">
+            <div class="prod-laptop1">
                 <?php
                 //  Lọc sản phẩm theo danh mục
                 $filteredProducts = array_filter($listProduct, function ($item) {
-                    return $item['cartegory_Id'] == '1';
+                    return $item['cartegory_Id'] == '2';
                 });
 
                 //  Trộn danh sách sản phẩm

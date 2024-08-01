@@ -3,13 +3,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/config.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/connect.php');
 
 //Thư viện phpmailer
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/phpmailer/Exception.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/phpmailer/PHPMailer.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/phpmailer/Exception.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/phpmailer/PHPMailer.php');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/phpmailer/SMTP.php';
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/function.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/database.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/session.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/function.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/database.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/admin/includes/session.php');
 
 $listBrand = getRaw("SELECT * FROM brand");
 
@@ -23,15 +23,18 @@ $listBrand = getRaw("SELECT * FROM brand");
     <title>SellphoneZ</title>
 
     <!-- Link to CSS -->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/header.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/base.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/banner.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/footer.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/popup.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/hot-prod.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/contact.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/header.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/base.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/banner.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/footer.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/popup.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/hot-prod.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/contact.css? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/orderInfo.css? ver= <?php echo rand() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="">
+    < <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+
 </head>
 
 <body>
@@ -62,25 +65,25 @@ $listBrand = getRaw("SELECT * FROM brand");
                         </a>
                         <!-- menu con -->
                         <div class="all-mobile">
-                        <div class="brand">
-                            <h4>HÃNG SẢN XUẤT</h4>
-                            <?php
-                            if (!empty($listBrand)) :
-                                foreach ($listBrand as $item) :
-                                    // Kiểm tra nếu cateogory_Id của item bằng 1
-                                    if ($item['cartegory_Id'] == 1) :
-                        ?>
-                        <a href="">
-                        
-                                <?php echo $item['name'] ?>
-                       
-                        </a>
-                        <?php
-                                    endif;
-                                endforeach;
-                            endif;
-                        ?>
-                        </div>
+                            <div class="brand">
+                                <h4>HÃNG SẢN XUẤT</h4>
+                                <?php
+                                if (!empty($listBrand)) :
+                                    foreach ($listBrand as $item) :
+                                        // Kiểm tra nếu cateogory_Id của item bằng 1
+                                        if ($item['cartegory_Id'] == 1) :
+                                ?>
+                                            <a href="">
+
+                                                <?php echo $item['name'] ?>
+
+                                            </a>
+                                <?php
+                                        endif;
+                                    endforeach;
+                                endif;
+                                ?>
+                            </div>
 
                             <div class="fillter-price">
                                 <h4>MỨC GIÁ</h4>
@@ -107,7 +110,7 @@ $listBrand = getRaw("SELECT * FROM brand");
 
                     <div class="iphone">
                         <a href="" class="ip-icon">
-                            <img class="iphone-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/apple-icon.png"><span>Iphone</span>
+                            <img class="iphone-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/apple-icon.png"><span>Apple</span>
                         </a>
                         <div class="all-iphone">
                             <div class="brand">
@@ -147,8 +150,7 @@ $listBrand = getRaw("SELECT * FROM brand");
 
                     <div class="samsung">
                         <a href="" class="ss-icon">
-                            <img class="samsung-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/samsung-icon.png"
-                                style="width: 70px;">
+                            <img class="samsung-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/samsung-icon.png" style="width: 70px;">
                             <span>SamSung</span>
                         </a>
                         <div class="all-samsung">
@@ -197,21 +199,21 @@ $listBrand = getRaw("SELECT * FROM brand");
                             <div class="brand">
                                 <h4>HÃNG SẢN XUẤT</h4>
                                 <?php
-                            if (!empty($listBrand)) :
-                                foreach ($listBrand as $item) :
-                                    // Kiểm tra nếu cateogory_Id của item bằng 1
-                                    if ($item['cartegory_Id'] == 2) :
-                        ?>
-                        <a href="">
-                        
-                                <?php echo $item['name'] ?>
-                       
-                        </a>
-                        <?php
-                                    endif;
-                                endforeach;
-                            endif;
-                        ?>
+                                if (!empty($listBrand)) :
+                                    foreach ($listBrand as $item) :
+                                        // Kiểm tra nếu cateogory_Id của item bằng 1
+                                        if ($item['cartegory_Id'] == 2) :
+                                ?>
+                                            <a href="">
+
+                                                <?php echo $item['name'] ?>
+
+                                            </a>
+                                <?php
+                                        endif;
+                                    endforeach;
+                                endif;
+                                ?>
 
 
                             </div>
@@ -321,8 +323,7 @@ $listBrand = getRaw("SELECT * FROM brand");
 
                     <div class="check-order">
                         <a href="">
-                            <img class="check-order-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/08-Delivery_Truck-512.webp"
-                                style="width: 50px;">
+                            <img class="check-order-icon-img" src="<?php echo BASE_URL; ?>images/header-icon/08-Delivery_Truck-512.webp" style="width: 50px;">
                             <span>Kiểm tra đơn hàng</span></a>
                     </div>
 
@@ -331,8 +332,7 @@ $listBrand = getRaw("SELECT * FROM brand");
             </nav>
 
             <div class="header-cart">
-                <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="<?php echo BASE_URL; ?>images/header-icon/cart-icon.png"
-                        style="width: 25px; height: 30px;;">
+                <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="<?php echo BASE_URL; ?>images/header-icon/cart-icon.png" style="width: 25px; height: 30px;;">
                     <span class="cart-quantity-item" id="count">
                         0
                     </span>

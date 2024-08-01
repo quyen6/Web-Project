@@ -20,8 +20,6 @@ if (isset($_POST['add-product'])) {
     echo "Không có ID sản phẩm.";
 }
 
-
-
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
 
