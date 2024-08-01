@@ -3,7 +3,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/header.php');
 
 ?>
 
-
 <!-- Main Container  -->
 <article id="container" style="height: 3600px;">
     <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>

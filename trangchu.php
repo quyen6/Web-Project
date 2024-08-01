@@ -1,29 +1,6 @@
 <?php
-session_start();
-
-if (isset($_POST['add-product'])) {
-    $productId = $_POST['id'];
-
-    // Thực hiện các thao tác với ID sản phẩm, ví dụ: thêm vào giỏ hàng
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Thêm ID sản phẩm vào giỏ hàng
-    if (!in_array($productId, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $productId;
-    }
-
-    echo "Sản phẩm với ID $productId đã được thêm vào giỏ hàng.";
-} else {
-    echo "Không có ID sản phẩm.";
-}
-
-
-
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
-
 //Thư viện phpmailer
 require_once "./admin/includes/phpmailer/Exception.php";
 require_once "./admin/includes/phpmailer/PHPMailer.php";
@@ -32,9 +9,46 @@ require_once "./admin/includes/phpmailer/SMTP.php";
 require_once "./admin/includes/function.php";
 require_once "./admin/includes/database.php";
 require_once "./admin/includes/session.php";
+
 $listProduct = getRaw("SELECT * FROM product");
 $listCartegory = getRaw("SELECT * FROM cartegory");
 $listBrand = getRaw("SELECT * FROM brand");
+
+$filterAll = filter();
+if (!empty($filterAll['product_id'])) {
+    $productId = $filterAll['product_id'];
+    $productDetail = oneRaw("SELECT * FROM product WHERE id='$productId'");
+    if ($productDetail) {
+        setFLashData('product-dail', $productDetail);
+    } else {
+        echo "Loi";
+    }
+}
+if (isPost()) {
+    if (!empty($listProduct)) :
+        foreach ($listProduct as $item) :
+            if ($item['id'] == $productId) :
+                $productName = $item['tenSanPham'];
+                $productGia = $item['giaSanPham'];
+                $productAnh = $item['anhSanPham'];
+            endif;
+        endforeach;
+    endif;
+    $dataInsert = [
+        'tenSanPham' => $productName,
+        'gia' => $productGia,
+        'anhSanPham' => $productAnh,
+        'soLuong' => '1',
+    ];
+    $insertStatus = insert('shopping_cart', $dataInsert);
+    if ($insertStatus) {
+        setFLashData('smg', 'Thêm giỏ hàng thành công!!');
+        setFLashData('smg_type', 'success');
+    } else {
+        setFLashData('smg', 'Hệ thống đang lỗi vui lòng thử lại sau!!');
+        setFLashData('smg_type', 'danger');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,86 +138,82 @@ $listBrand = getRaw("SELECT * FROM brand");
             <!-- Điện thoại -->
             <h2>Điện thoại nổi bật</h2>
             <div class="prod-mobile">
-                    <div class="prod-mobile1">
-                        <?php
-                        //  Lọc sản phẩm theo danh mục
-                        $filteredProducts = array_filter($listProduct, function($item) {
-                            return $item['cartegory_Id'] == '1';
-                        });
+                <div class="prod-mobile1">
+                    <?php
+                    //  Lọc sản phẩm theo danh mục
+                    $filteredProducts = array_filter($listProduct, function ($item) {
+                        return $item['cartegory_Id'] == '1';
+                    });
 
-                        //  Trộn danh sách sản phẩm
-                        // shuffle($filteredProducts);
+                    //  Trộn danh sách sản phẩm
+                    // shuffle($filteredProducts);
 
-                        //  Lấy 20 sản phẩm đầu tiên
-                        $selectedProducts = array_slice($filteredProducts, 0, 20);
+                    //  Lấy 20 sản phẩm đầu tiên
+                    $selectedProducts = array_slice($filteredProducts, 0, 20);
 
-                        if (!empty($selectedProducts)) :
-                            foreach ($selectedProducts as $item) :
-                                $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
-                        ?>
+                    if (!empty($selectedProducts)) :
+                        foreach ($selectedProducts as $item) :
+                            $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
+                    ?>
 
-                                    
-                                <div class="mobile-link">
-                                    <a href="">
-                                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
-                                        <div class="name"><?php echo $item['tenSanPham'] ?></div>
 
-                                        <?php
-                                        if ($item['giam'] != '0') :
-                                        ?>
-                                            <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
-                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
-                                        <?php
-                                        else :
-                                        ?>
-                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
-                                        <?php
-                                        endif;
-                                        ?>
-                                        <div class="tragop">Trả góp 0%</div>
-                                        <div></div>
-                                        <div class="love-icon">
-                                            <div class="detail-star">
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            </div>
-                                           <!-- <button class="add-product" id="add-to-cart" data-id="<?php echo $item['id']; ?>">
-                                           <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                           <img src="images/hot-prod/cart-icon.png">
-                                           </button> -->
-                                           <form action="update_cart.php" method="POST">
-                                                    <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
-                                                </form>
-                                                                                    
+                            <div class="mobile-link">
+                                <a href="">
+                                    <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
+                                    <div class="name"><?php echo $item['tenSanPham'] ?></div>
+
+                                    <?php
+                                    if ($item['giam'] != '0') :
+                                    ?>
+                                        <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
+                                    <?php
+                                    else :
+                                    ?>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
+                                    <?php
+                                    endif;
+                                    ?>
+                                    <div class="tragop">Trả góp 0%</div>
+                                    <div></div>
+                                    <div class="love-icon">
+                                        <div class="detail-star">
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                         </div>
-                                    </a>
-                                </div>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </div>
+                                        <form action="" target="page" method="post">
+                                            <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                                            <button type="submit"><img src="images/hot-prod/cart-icon.png"></button>
+                                        </form>
+                                    </div>
+                                </a>
+                            </div>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </div>
+            </div>
 
 
             <!-- Laptop -->
             <h2>Laptop</h2>
             <div class="prod-laptop">
                 <div class="prod-laptop1">
-                <?php
-                        // Bước 1: Lọc sản phẩm theo danh mục
-                        $filteredProducts = array_filter($listProduct, function($item) {
-                            return $item['cartegory_Id'] == '2';
-                        });
+                    <?php
+                    // Bước 1: Lọc sản phẩm theo danh mục
+                    $filteredProducts = array_filter($listProduct, function ($item) {
+                        return $item['cartegory_Id'] == '2';
+                    });
 
-                        // Bước 2: Trộn danh sách sản phẩm
-                        // shuffle($filteredProducts);
+                    // Bước 2: Trộn danh sách sản phẩm
+                    // shuffle($filteredProducts);
 
-                        // Bước 3: Lấy 15 sản phẩm đầu tiên
-                        $selectedProducts = array_slice($filteredProducts, 0, 20);
+                    // Bước 3: Lấy 15 sản phẩm đầu tiên
+                    $selectedProducts = array_slice($filteredProducts, 0, 20);
                     ?>
                     <?php
                     if (!empty($selectedProducts)) :

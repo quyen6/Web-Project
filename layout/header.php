@@ -330,11 +330,13 @@ $listBrand = getRaw("SELECT * FROM brand");
                 </div>
 
             </nav>
-
+            <?php
+            $count= getRows("SELECT * FROM shopping_cart");
+            ?>
             <div class="header-cart">
                 <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="<?php echo BASE_URL; ?>images/header-icon/cart-icon.png" style="width: 25px; height: 30px;;">
                     <span class="cart-quantity-item" id="count">
-                        0
+                        <?php echo $count?>
                     </span>
                 </a>
                 <div class="cart-no-item">
