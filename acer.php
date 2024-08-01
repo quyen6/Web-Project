@@ -13,6 +13,18 @@ require_once "./admin/includes/session.php";
 
 $listBrand = getRaw("SELECT * FROM brand");
 $listProduct = getRaw("SELECT * FROM product");
+
+$filterAll = filter();
+if (!empty($filterAll['brand_id'])) {
+    $brandId = $filterAll['brand_id'];
+    $brandDetail = oneRaw("SELECT * FROM product WHERE brand_Id='$brandId'");
+    if ($brandDetail) {
+        setFLashData('admin-dail', $brandDetail);
+    } else {
+        echo "Loi";
+    }
+}
+
 $smg = getFLashData('smg');
 $smg_type = getFLashData('smg_type');
 ?>
@@ -43,26 +55,19 @@ $smg_type = getFLashData('smg_type');
             <li><a href="<?php echo _WEB_HOST_1 ?>/trangchu.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
             <li><a href="<?php echo _WEB_HOST_1 ?>/laptop.php" target="page"><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Laptop</a>
             </li>
+            <li><a href=""><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>
+                    <?php
+                    if (!empty($listBrand)) :
+                        foreach ($listBrand as $item) :
+                            if ($item['id'] == $brandId) :
+                                echo $item['name'];
+                            endif;
+                        endforeach;
+                    endif;
+                    ?>
+                </a></li>
         </ul>
         <div class="clear"></div>
-
-        <div class="list-brand">
-            <nav>
-                <?php
-                if (!empty($listBrand)) :
-                    foreach ($listBrand as $item) :
-                        if ($item['cartegory_Id'] == '2') :
-                ?>
-                            <a href="<?php echo _WEB_HOST_1 ?>/acer.php?brand_id=<?php echo $item['id'] ?>" target="page" class="list-brand_item"><span><?php echo $item['name'] ?></span> </a>
-
-                <?php
-                        endif;
-                    endforeach;
-                endif;
-                ?>
-            </nav>
-        </div>
-
         <div class="condition">
             <div class="filter-sort_title">
                 Chọn tiêu chí
@@ -119,59 +124,48 @@ $smg_type = getFLashData('smg_type');
         <div class="prod-laptop">
             <div class="prod-laptop1">
                 <?php
-                //  Lọc sản phẩm theo danh mục
-                $filteredProducts = array_filter($listProduct, function ($item) {
-                    return $item['cartegory_Id'] == '2';
-                });
-
-                //  Trộn danh sách sản phẩm
-                // shuffle($filteredProducts);
-
-                //  Lấy 20 sản phẩm đầu tiên
-                $selectedProducts = array_slice($filteredProducts, 0, 30);
-
-                if (!empty($selectedProducts)) :
-                    foreach ($selectedProducts as $item) :
-                        $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
+                if (!empty($listProduct)) :
+                    foreach ($listProduct as $item) :
+                        if ($item['brand_Id'] == $brandId && $item['cartegory_Id'] == '2') :
+                            $imagePath = "admin/modules/auth/uploads/" . $item['anhSanPham'];
                 ?>
+                            <div class="laptop-link">
+                                <a href="">
+                                    <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
+                                    <div class="name"><?php echo $item['tenSanPham'] ?></div>
 
+                                    <?php
+                                    if ($item['giam'] != '0') :
+                                    ?>
+                                        <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
+                                    <?php
+                                    else :
+                                    ?>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
+                                    <?php
+                                    endif;
+                                    ?>
+                                    <div class="tragop">Trả góp 0%</div>
+                                    <div></div>
+                                    <div class="love-icon">
+                                        <div class="detail-star">
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                        </div>
+                                        <button class="add-product" value="<?php echo $item['id']; ?>">
+                                            <!-- <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>"> -->
+                                            <img src="images/hot-prod/cart-icon.png">
+                                        </button>
 
-                        <div class="laptop-link">
-                            <a href="">
-                                <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
-                                <div class="name"><?php echo $item['tenSanPham'] ?></div>
-
-                                <?php
-                                if ($item['giam'] != '0') :
-                                ?>
-                                    <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
-                                    <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
-                                <?php
-                                else :
-                                ?>
-                                    <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
-                                <?php
-                                endif;
-                                ?>
-                                <div class="tragop">Trả góp 0%</div>
-                                <div></div>
-                                <div class="love-icon">
-                                    <div class="detail-star">
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                     </div>
-                                    <button class="add-product" value="<?php echo $item['id']; ?>">
-                                        <!-- <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>"> -->
-                                        <img src="images/hot-prod/cart-icon.png">
-                                    </button>
-
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
                 <?php
+                        endif;
                     endforeach;
                 endif;
                 ?>
