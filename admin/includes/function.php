@@ -13,6 +13,7 @@ function layout($layoutName = 'header', $data = [])
     }
 }
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
