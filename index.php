@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";
 
@@ -30,7 +29,7 @@ $smg_type = getFLashData('smg_type');
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
-    <link rel="stylesheet" href="css/hot-prod.css ? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="css/hot-prod.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -190,7 +189,7 @@ $smg_type = getFLashData('smg_type');
                     </div>
 
                     <div class="laptop">
-                        <a href="laptop.php" target="page" class="laptop-icon">
+                        <a href="" class="laptop-icon">
                             <img class="laptop-icon-img" src="./images/header-icon/laptop-icon.jpg">
                             <span>Laptop</span>
                         </a>
@@ -336,13 +335,7 @@ $smg_type = getFLashData('smg_type');
                 <a href="orderInfo.html" target="page"> <img class="header-cart-img" src="./images/header-icon/cart-icon.png"
                         style="width: 25px; height: 30px;;">
                     <span class="cart-quantity-item" id="count">
-                    <?php
-      
-        if (!isset($_SESSION['cart_count'])) {
-            $_SESSION['cart_count'] = 0;
-        }
-        echo $_SESSION['cart_count'];
-        ?>
+                        0
                     </span>
                 </a>
                 <div class="cart-no-item">
@@ -359,8 +352,8 @@ $smg_type = getFLashData('smg_type');
 
 
         <!-- Main Container  -->
-        <article id="container" style="height: 4000px; margin-top: 62px" >
-           <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%;"></iframe>
+        <article id="container" style="height: 4000px;" >
+           <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
         </article> 
       
         <!-- Aside  -->
@@ -384,7 +377,7 @@ $smg_type = getFLashData('smg_type');
 
 
         <!-- Footer -->
-        <!-- <footer class="footer">
+        <footer class="footer">
             <div class="ft-content-one">
                 <div class="ft-content1">
                     <h4>Hỗ trợ dịch vụ</h4>
@@ -445,22 +438,23 @@ $smg_type = getFLashData('smg_type');
                 09/07/2024)
 
             </div>
-        </footer> -->
+        </footer>
 
 
 
     </div>
 
-    <div id="overlay"></div>
-    <div class="popup" id="popup">
-        <button class="close-btn" onclick="closePopup()"><i class="fa-solid fa-circle-xmark"></i></button>
-        <img src="./images/header-icon/login-icon.png" alt="Smember Logo" style="width: 50px; height: 50px;">
-        <p>Bạn có tài khoản chưa?</p>
-        <button class="register">Đăng ký</button>
-        <button class="login">Đăng nhập</button>
-    </div>
-    <script src="./js/popup.js"></script>
+<div id="overlay"></div>
+<div class="popup" id="popup">
+    <button class="close-btn" onclick="closePopup()"><i class="fa-solid fa-circle-xmark"></i></button>
+    <img src="./images/header-icon/login-icon.png" alt="Smember Logo" style="width: 50px; height: 50px;">
+    <p>Bạn có tài khoản chưa?</p>
+    <button class="register">Đăng ký</button>
+    <button class="login">Đăng nhập</button>
+</div>
+<script src="./js/popup.js"></script>
 </body>
+
 </html>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/footer.php');
