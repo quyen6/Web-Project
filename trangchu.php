@@ -1,25 +1,6 @@
 <?php
 session_start();
 
-if (isset($_POST['add-product'])) {
-    $productId = $_POST['id'];
-
-    // Thực hiện các thao tác với ID sản phẩm, ví dụ: thêm vào giỏ hàng
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-
-    // Thêm ID sản phẩm vào giỏ hàng
-    if (!in_array($productId, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $productId;
-    }
-
-    echo "Sản phẩm với ID $productId đã được thêm vào giỏ hàng.";
-} else {
-    echo "Không có ID sản phẩm.";
-}
-
-
 
 require_once "./admin/config.php";
 require_once "./admin/includes/connect.php";

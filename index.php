@@ -189,7 +189,7 @@ $smg_type = getFLashData('smg_type');
                     </div>
 
                     <div class="laptop">
-                        <a href="" class="laptop-icon">
+                        <a href="laptop.php" target="page" class="laptop-icon">
                             <img class="laptop-icon-img" src="./images/header-icon/laptop-icon.jpg">
                             <span>Laptop</span>
                         </a>
@@ -352,8 +352,8 @@ $smg_type = getFLashData('smg_type');
 
 
         <!-- Main Container  -->
-        <article id="container" style="height: 4000px;" >
-           <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%; margin:60px auto"></iframe>
+        <article id="container" style="height: 4000px;  margin-top:60px " >
+           <iframe src="trangchu.php" name="page" frameborder="0" style="width: 100%;height: 100%;"></iframe>
         </article> 
       
         <!-- Aside  -->
@@ -377,7 +377,7 @@ $smg_type = getFLashData('smg_type');
 
 
         <!-- Footer -->
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="ft-content-one">
                 <div class="ft-content1">
                     <h4>Hỗ trợ dịch vụ</h4>
@@ -438,7 +438,7 @@ $smg_type = getFLashData('smg_type');
                 09/07/2024)
 
             </div>
-        </footer>
+        </footer> -->
 
 
 
