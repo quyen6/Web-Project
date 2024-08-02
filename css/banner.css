@@ -1,17 +1,24 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f8f9fa; */
+    width: 100%;
+}
 
 * {
     box-sizing: border-box;
-    
-  }
-  
-.banner  {
+
+}
+
+.banner {
     max-width: 100%;
     /* position: absolute; */
     /* top: 35px; */
     /* position: absolute; */
     box-sizing: border-box;
     overflow: hidden;
-    
+
 }
 
 .banner-list {
@@ -113,44 +120,50 @@
 
 .banner-second a {
     display: flex;
-    justify-content: center; /* Căn giữa nội dung bên trong thẻ a theo chiều ngang */
-    align-items: center; /* Căn giữa nội dung bên trong thẻ a theo chiều dọc */
-    height: 100%; /* Đảm bảo thẻ a chiếm toàn bộ chiều cao của thẻ div cha */
-   
+    justify-content: center;
+    /* Căn giữa nội dung bên trong thẻ a theo chiều ngang */
+    align-items: center;
+    /* Căn giữa nội dung bên trong thẻ a theo chiều dọc */
+    height: 100%;
+    /* Đảm bảo thẻ a chiếm toàn bộ chiều cao của thẻ div cha */
+
 }
 
-   
+
 .banner2 {
     flex: 0.3;
     background-color: rgb(172, 37, 37);
     position: relative;
-   box-shadow: 0 0 5px rgb(172, 37, 37);
-   animation: animate alternate 0.3s infinite;
-   margin: 3px 6px 0 0;
+    box-shadow: 0 0 5px rgb(172, 37, 37);
+    animation: animate alternate 0.3s infinite;
+    margin: 3px 6px 0 0;
 
 
 }
+
 @keyframes animate {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1.05);
     }
 }
 
-.banner2 a{
+.banner2 a {
     color: #fff;
     text-decoration: none;
     text-align: center;
     font-weight: bold;
     padding-left: 5px;
 }
-.banner-second .banner2 img{
-   position: absolute;
-   top: -25px;
-   right: -90px;
-   
+
+.banner-second .banner2 img {
+    position: absolute;
+    top: -25px;
+    right: -90px;
+
 }
 
 
@@ -165,7 +178,9 @@
     border: 2px solid;
 }
 
-.banner2, .banner3, .banner4 {
+.banner2,
+.banner3,
+.banner4 {
     border-radius: 5px;
     border-color: rgb(2, 132, 139);
 

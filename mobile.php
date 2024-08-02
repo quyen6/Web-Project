@@ -1,15 +1,5 @@
 <?php
-require_once "./admin/config.php";
-require_once "./admin/includes/connect.php";
-
-//Thư viện phpmailer
-require_once "./admin/includes/phpmailer/Exception.php";
-require_once "./admin/includes/phpmailer/PHPMailer.php";
-require_once "./admin/includes/phpmailer/SMTP.php";
-
-require_once "./admin/includes/function.php";
-require_once "./admin/includes/database.php";
-require_once "./admin/includes/session.php";
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/header.php');
 
 $listBrand = getRaw("SELECT * FROM brand");
 $listProduct = getRaw("SELECT * FROM product");
@@ -25,8 +15,8 @@ $smg_type = getFLashData('smg_type');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Điện thoại</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/hot-prod.css">
+    <link rel="stylesheet" href="css/mobile.css ? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="css/hot-prod.css? ver= <?php echo rand() ?>">
     <!-- <style>
         .mobile-container {
     width: 100%;
@@ -41,7 +31,7 @@ $smg_type = getFLashData('smg_type');
 <body>
     <div class="mobile-container">
         <ul class="nav-list">
-            <li><a href="<?php echo _WEB_HOST_1 ?>/trangchu.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
+            <li><a href="<?php echo _WEB_HOST_1 ?>/index.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
             <li><a href="<?php echo _WEB_HOST_1 ?>/mobile.php" target="page"><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Điện
                     thoại</a>
             </li>
@@ -119,21 +109,21 @@ $smg_type = getFLashData('smg_type');
         </div>
 
         <div class="hot-prod">
-            
-      
+
+
             <div class="prod-mobile">
                 <div class="prod-mobile1">
-                <?php
-                        // Bước 1: Lọc sản phẩm theo danh mục
-                        // $filteredProducts = array_filter($listProduct, function($item) {
-                        //     return $item['cartegory_Id'] == '2';
-                        // });
+                    <?php
+                    // Bước 1: Lọc sản phẩm theo danh mục
+                    // $filteredProducts = array_filter($listProduct, function($item) {
+                    //     return $item['cartegory_Id'] == '2';
+                    // });
 
-                        // Bước 2: Trộn danh sách sản phẩm
-                        // shuffle($filteredProducts);
+                    // Bước 2: Trộn danh sách sản phẩm
+                    // shuffle($filteredProducts);
 
-                        // Bước 3: Lấy 15 sản phẩm đầu tiên
-                        // $selectedProducts = array_slice($filteredProducts, 0, 20);
+                    // Bước 3: Lấy 15 sản phẩm đầu tiên
+                    // $selectedProducts = array_slice($filteredProducts, 0, 20);
                     ?>
                     <?php
                     if (!empty($listProduct)) :
@@ -167,7 +157,7 @@ $smg_type = getFLashData('smg_type');
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
                                             <form action="update_cart.php" method="POST">
-                                            <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
+                                                <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
                                             </form>
                                         </div>
                                     </a>
@@ -188,3 +178,5 @@ $smg_type = getFLashData('smg_type');
 </body>
 
 </html>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/footer.php');

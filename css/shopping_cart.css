@@ -1,0 +1,96 @@
+body {
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 20px 0 10px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    background-color: #e8e8e8;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #236B8E;
+    color: white;
+}
+
+td {
+    background-color: white;
+    color: #333;
+}
+
+td:nth-child(3) img {
+    width: 100px;
+    height: auto;
+}
+
+td:nth-child(1),
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6),
+td:nth-child(7) {
+    text-align: center;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.table_bottom a {
+    padding: 10px 20px;
+    background-color: #98c8d3;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.table_bottom a:hover {
+    background-color: #7aaab7;
+}
+
+.table_bottom h3 {
+    margin: 0;
+}
+
+.delete_all {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.delete_all i {
+    margin-right: 5px;
+}
+
+.delete_all a {
+    padding: 10px 20px;
+    background-color: #236B8E;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.delete_all a:hover {
+    background-color: #1d5b74;
+}

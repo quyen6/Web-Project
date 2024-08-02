@@ -1,15 +1,5 @@
 <?php
-require_once "./admin/config.php";
-require_once "./admin/includes/connect.php";
-
-//Thư viện phpmailer
-require_once "./admin/includes/phpmailer/Exception.php";
-require_once "./admin/includes/phpmailer/PHPMailer.php";
-require_once "./admin/includes/phpmailer/SMTP.php";
-
-require_once "./admin/includes/function.php";
-require_once "./admin/includes/database.php";
-require_once "./admin/includes/session.php";
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/header.php');
 
 $listBrand = getRaw("SELECT * FROM brand");
 $listProduct = getRaw("SELECT * FROM product");
@@ -36,8 +26,8 @@ $smg_type = getFLashData('smg_type');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Điện thoại</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/hot-prod.css">
+    <link rel="stylesheet" href="css/mobile.css ? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="css/hot-prod.css? ver= <?php echo rand() ?>">
     <!-- <style>
         .mobile-container {
     width: 100%;
@@ -52,7 +42,7 @@ $smg_type = getFLashData('smg_type');
 <body>
     <div class="mobile-container">
         <ul class="nav-list">
-            <li><a href="<?php echo _WEB_HOST_1 ?>/trangchu.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
+            <li><a href="<?php echo _WEB_HOST_1 ?>/index.php"><i class="fa-solid fa-house" style="color: red;"></i>Trang chủ</a></li>
             <li><a href="<?php echo _WEB_HOST_1 ?>/laptop.php" target="page"><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>Laptop</a>
             </li>
             <li><a href=""><i class="fa-solid fa-greater-than" style="font-size: 12px;"></i>
@@ -177,3 +167,5 @@ $smg_type = getFLashData('smg_type');
 </body>
 
 </html>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/footer.php');

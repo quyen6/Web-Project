@@ -16,6 +16,7 @@ require_once "./admin/includes/session.php";
 $listProduct = getRaw("SELECT * FROM product");
 $listCartegory = getRaw("SELECT * FROM cartegory");
 $listBrand = getRaw("SELECT * FROM brand");
+$listCart = getRaw("SELECT * FROM shopping_cart");
 
 $filterAll = filter();
 if (!empty($filterAll['product_id'])) {
@@ -28,30 +29,50 @@ if (!empty($filterAll['product_id'])) {
     }
 }
 if (isPost()) {
-    if (!empty($listProduct)) :
-        foreach ($listProduct as $item) :
-            if ($item['id'] == $productId) :
-                $productName = $item['tenSanPham'];
-                $productGia = $item['giaSanPham'];
-                $productAnh = $item['anhSanPham'];
-            endif;
-        endforeach;
-    endif;
-    $dataInsert = [
-        'tenSanPham' => $productName,
-        'gia' => $productGia,
-        'anhSanPham' => $productAnh,
-        'soLuong' => '1',
-    ];
-    $insertStatus = insert('shopping_cart', $dataInsert);
-    if ($insertStatus) {
-        setFLashData('smg', 'Thêm giỏ hàng thành công!!');
-        setFLashData('smg_type', 'success');
+    $productCount = getRows("SELECT * FROM shopping_cart WHERE product_Id='$productId'");
+    if ($productCount > 0) {
+        if (!empty($listCart)) :
+            foreach ($listCart as $item) :
+                if ($item['product_Id'] == $productId) :
+                    $soluong = $item['soLuong'];
+                endif;
+            endforeach;
+        endif;
+        $soluong = intval($soluong) + 1;
+        $dataUpdate = [
+            'soLuong' => $soluong,
+        ];
+        $condition = "product_Id=$productId";
+        $updateStatus = update('shopping_cart', $dataUpdate, $condition);
     } else {
-        setFLashData('smg', 'Hệ thống đang lỗi vui lòng thử lại sau!!');
-        setFLashData('smg_type', 'danger');
+        if (!empty($listProduct)) :
+            foreach ($listProduct as $item) :
+                if ($item['id'] == $productId) :
+                    $productName = $item['tenSanPham'];
+                    $productGia = $item['giaSanPham'];
+                    $productAnh = $item['anhSanPham'];
+                endif;
+            endforeach;
+        endif;
+        $dataInsert = [
+            'product_Id' => $productId,
+            'tenSanPham' => $productName,
+            'gia' => $productGia,
+            'anhSanPham' => $productAnh,
+            'soLuong' => '1',
+        ];
+        $insertStatus = insert('shopping_cart', $dataInsert);
+        if ($insertStatus) {
+            setFLashData('smg', 'Thêm giỏ hàng thành công!!');
+            setFLashData('smg_type', 'success');
+        } else {
+            setFLashData('smg', 'Hệ thống đang lỗi vui lòng thử lại sau!!');
+            setFLashData('smg_type', 'danger');
+        }
     }
+    header('Location: index.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,45 +186,42 @@ if (isPost()) {
                                     <img src="<?php echo $imagePath; ?>" alt="<?php echo $item['tenSanPham']; ?>">
                                     <div class="name"><?php echo $item['tenSanPham'] ?></div>
 
-                                        <?php
-                                        if ($item['giam'] != '0') :
-                                        ?>
-                                            <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
-                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
-                                        <?php
-                                        else :
-                                        ?>
-                                            <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
-                                        <?php
-                                        endif;
-                                        ?>
-                                        <div class="tragop">Trả góp 0%</div>
-                                        <div></div>
-                                        <div class="love-icon">
-                                            <div class="detail-star">
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            </div>
-                                           <!-- <button class="add-product" id="add-to-cart" data-id="<?php echo $item['id']; ?>">
-                                           <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                           <img src="images/hot-prod/cart-icon.png">
-                                           </button> -->
-                                           <form action="update_cart.php" method="POST">
-                                                    <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
-                                                </form>
-                                                                                    
+                                    <?php
+                                    if ($item['giam'] != '0') :
+                                    ?>
+                                        <div class="sale">Giảm <?php echo $item['giam'] ?>%</div>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ <del><?php echo $item['giaSanPham'] ?>đ</del></div>
+                                    <?php
+                                    else :
+                                    ?>
+                                        <div class="price"><?php echo $item['giaKhuyenMai'] ?>đ</div>
+                                    <?php
+                                    endif;
+                                    ?>
+                                    <div class="tragop">Trả góp 0%</div>
+                                    <div></div>
+                                    <div class="love-icon">
+                                        <div class="detail-star">
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                         </div>
-                                    </a>
-                                </div>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </div>
+                                        <form action="" target="page" method="post">
+                                            <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                                            <button type="submit"><img src="images/hot-prod/cart-icon.png"></button>
+                                        </form>
+
+                                    </div>
+                                </a>
+                            </div>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </div>
+            </div>
 
 
             <!-- Laptop -->
@@ -253,8 +271,9 @@ if (isPost()) {
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                             </div>
-                                            <form action="update_cart.php" method="POST">
-                                            <button type="submit" name="update_cart" value="1"><img src="images/hot-prod/cart-icon.png"></button>
+                                            <form action="" target="page" method="post">
+                                                <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                                                <button type="submit"><img src="images/hot-prod/cart-icon.png"></button>
                                             </form>
                                         </div>
                                     </a>
@@ -272,27 +291,7 @@ if (isPost()) {
     </div>
     <!-- script banner -->
     <script src="js/banner.js"></script>
-    <!-- script cart -->
 
-    <!-- <script src="js/cart-orderInfo.js"></script> -->
-
-    <!-- <script>
-    document.getElementById('add-to-cart').addEventListener('click', function() {
-    fetch('update_cart.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: 'update_cart=1'
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('cart_count').innerText = data;
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-    </script> -->
 
 </body>
 
