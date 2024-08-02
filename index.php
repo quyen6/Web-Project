@@ -375,9 +375,6 @@ $smg_type = getFLashData('smg_type');
             </div>
         </aside>
 
-<script>
-    document
-</script>
 
 
         <!-- Footer -->
