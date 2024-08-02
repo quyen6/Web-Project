@@ -29,8 +29,8 @@ $smg_type = getFLashData('smg_type');
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
-    <link rel="stylesheet" href="css/hot-prod.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/hot-prod.css ? ver= <?php echo rand() ?>">
+    <link rel="stylesheet" href="css/contact.css ? ver= <?php echo rand() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
@@ -360,20 +360,24 @@ $smg_type = getFLashData('smg_type');
         <aside>
             <div class="contact">
                 <div class="zalo">
-
+                
                     <a href=""><img src="images/contact/zalo-icon.png" alt="">
-                        <span>Chat với chúng tôi qua Zalo</span>
+                    <span >Chat với chúng tôi qua Zalo</span>
                     </a>
+                    
                 </div>
                 <div class="message">
+                
                     <a href=""><img src="images/contact/Facebook_Messenger_logo_2020.svg.png" alt="">
-                    <span>Chat với chúng tôi qua Facebook Message</span>
-                </a>
+                    <span >Chat với chúng tôi qua Facebook Message</span>
+                </a> 
                 </div>
             </div>
         </aside>
 
-
+<script>
+    document
+</script>
 
 
         <!-- Footer -->

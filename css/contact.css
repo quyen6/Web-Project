@@ -1,23 +1,25 @@
 .contact {
     right: 10px;
-    top: 500px;
-    /* width: 200px; */
+    bottom: 100px;
     position: fixed;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.zalo, .message {
+.zalo a, .message a {
     display: flex;
-    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    align-items: center;
     flex-direction: row-reverse;
+    text-decoration: none;
+    justify-content: flex-end;  
 }
 
 .zalo img, .message img {
     width: 52px;
     height: 52px;
     margin-left: 10px;
+    z-index: 2;  /* Add this to ensure image is always on top */
 }
 
 .message img {
@@ -25,19 +27,22 @@
     height: 50px;
 }
 
-.zalo span, .message span {
-    display: none; /* Ẩn phần tử span theo mặc định */
+.zalo span, .message span { 
     background-color: #0277bd;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px 5px; 
     text-align: center;
     color: white;
     font-size: 10px;
     height: 30px;
-    margin-left: 10px;
-    width: 150px;
+    width: 140px;
+    display: none; 
+    position: absolute; 
+    right: 62px;  
+    align-items: center;
+    justify-content: center;
 }
 
-.zalo:hover span, .message:hover span {
-    display: block; /* Hiển thị phần tử span khi di chuột vào phần tử chứa */
+.zalo a:hover span, .message a:hover span {
+    display: flex;  /* Changed from block to flex */
 }
