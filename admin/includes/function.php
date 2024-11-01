@@ -174,7 +174,7 @@ function getSmg($smg, $type = 'success')
 }
 
 // Hàm điều hướng
-function redirect($path='index.php')
+function redirect($path = 'index.php')
 {
     header("Location: $path");
     exit;
@@ -209,4 +209,18 @@ function isLogin()
         }
     }
     return $checkLogin;
+}
+function checkAndCleanExpiredTokens()
+{
+    $expirationTime = 1800;
+    $currentTime = time();
+
+    $tokens = getRaw("SELECT * FROM tokenlogin");
+    foreach ($tokens as $token) {
+        $tokenAdmin = $token['token'];
+        $tokenCreationTime = strtotime($token['create_at']);
+        if ($currentTime - $tokenCreationTime > $expirationTime) {
+            delete('tokenlogin', "token='$tokenAdmin'");
+        }
+    }
 }

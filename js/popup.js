@@ -13,3 +13,4 @@ document.querySelector('.log-in-icon').addEventListener('click', function (event
     showPopup();
 });
 
+    

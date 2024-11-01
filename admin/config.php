@@ -1,6 +1,6 @@
 <?php
 
-const _MODULE = 'auth';
+const _MODULE = 'active';
 const _ACTION = 'login';
 
 const _CODE = true;
@@ -10,6 +10,7 @@ define('_WEB_HOST' , 'http://' . $_SERVER['HTTP_HOST'].'/Web_Project/admin');
 define('_WEB_HOST_TEMPLATES' , _WEB_HOST.'/templates');
 define('_WEB_HOST_1','http://' . $_SERVER['HTTP_HOST'].'/Web_Project');
 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 //Thiết kập path
 
 define('_WEB_PATH',__DIR__);

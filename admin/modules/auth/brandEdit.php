@@ -1,4 +1,11 @@
 <?php
+if (!defined('_CODE')) {
+    die('Access denied...');
+}
+if (!isLogin()) {
+    session_regenerate_id(true);
+    redirect('?module=active&action=login');
+}
 $listCartegory = getRaw("SELECT * FROM cartegory");
 $filterAll = filter();
 if (!empty($filterAll['id'])) {

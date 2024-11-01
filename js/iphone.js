@@ -1,59 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const images = [
-        './images/banner/galaxy-s24-sale.jpeg',
-        './images/banner/iphone-15-pro-max_3.webp',
-        './images/banner/image3.jpg', // Add the paths to the remaining images
-        './images/banner/image4.jpg'
-    ];
-
+    const sliderContent = document.querySelector('.slider-content-top-slide');
+    const items = document.querySelectorAll('.slider-content-top-slide .item');
+    const next = document.querySelector('#next');
+    const prev = document.querySelector('#prev');
+    const dots = document.querySelectorAll('.slider-content-bottom li');
     let currentIndex = 0;
 
-    const mainImage = document.getElementById('main-image');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const thumbnails = document.querySelectorAll('.slider-content-bottom li');
+    function showSlide(index) {
+        items.forEach((item, i) => {
+            if (i === index) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        updateDots(index);
+    }
 
-    function updateMainImage(index) {
-        mainImage.src = images[index];
-        thumbnails.forEach((thumbnail, i) => {
-            thumbnail.classList.toggle('active', i === index);
+    function updateDots(index) {
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
         });
     }
 
-    nextBtn.onclick = function() {
-        currentIndex = currentIndex + 1 <= images.length - 1 ? currentIndex + 1 : 0;
-        updateMainImage(currentIndex);
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
     }
 
-    prevBtn.onclick = function() {
-        currentIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : images.length - 1;
-        updateMainImage(currentIndex);
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showSlide(currentIndex);
     }
 
-    thumbnails.forEach((thumbnail, key) => {
-        thumbnail.addEventListener('click', () => {
-            currentIndex = key;
-            updateMainImage(currentIndex);
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showSlide(currentIndex);
         });
     });
 
-    window.onresize = function(event) {
-        updateMainImage(currentIndex);
-    };
-
-    // Initialize the main image
-    updateMainImage(currentIndex);
+    showSlide(currentIndex);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+
+//-------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
     var links = document.querySelectorAll('.box05 a');
-    
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
+
+    links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
             event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
 
             // Xóa lớp 'active' từ tất cả các liên kết
-            links.forEach(function(link) {
+            links.forEach(function (link) {
                 link.classList.remove('active');
             });
 

@@ -8,7 +8,7 @@
     color: white;
     border-radius: 10px;
     font-size: 12.5px;
-    max-width: 100%;
+    width: 100%;
     z-index: 1000;
     right: 0;
 }
@@ -16,11 +16,15 @@
 
 .ft-content-one {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* align-items: center; */
 
 }
 
+.ft-content-one .ft-logo img{
+    width: 150px;
+    height: 150px;
+}
 .ft-content1 ul {
     list-style-type: none;
     list-style: none;
@@ -62,7 +66,7 @@
 }
 
 
-.payment {}
+
 
 .payment img {
     width: 50px;

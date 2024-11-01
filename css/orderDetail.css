@@ -1,0 +1,112 @@
+.order-check {
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-check h2 {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.order-check form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-check input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.order-check input[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-check input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    text-align: center;
+    color: #ff0000;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.admin-content-cartegory_list {
+    padding-top: 10px;
+
+}
+
+.admin-content-cartegory_list ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.admin-content-cartegory_list li {
+    margin: 0;
+    padding-right: 10px;
+}
+
+.admin-content-cartegory_list ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-content-cartegory_list ul li a:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.admin-content-cartegory_list h2 {
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.admin-content-cartegory_list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-content-cartegory_list th,
+.admin-content-cartegory_list td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    width: 50px;
+    text-align: center;
+}
+
+.admin-content-cartegory_list th {
+    background-color: #236B8E;
+    color: white;
+    font-weight: bold;
+}

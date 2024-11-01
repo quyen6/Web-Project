@@ -1,60 +1,99 @@
-body {
-    background-color: #f3f3f3;
-    margin: 0;
-    padding: 20px 0 10px 0;
-}
 
-h1 {
+.cart{
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    padding-bottom: 15px;
+}
+.remove {
+    text-decoration: none;
+    color: red;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f8d7da;
+    border-radius: 5px;
+}
+.remove:hover {
+    background-color: #f5c6cb;
+}
+.cart h2 {
     text-align: center;
-    color: #333;
+    color: red;
+    padding-top: 30px;
+    font-size: larger;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-table {
-    width: 100%;
+.cart table {
+    width: 95%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px auto;
     font-size: 18px;
     text-align: center;
     background-color: #e8e8e8;
-}
+   
 
-th,
+}
+.cart .remove button , .cart .all-remove button {
+    background: none; 
+    border: none;
+    padding: 0;
+    margin: 0; 
+    font: inherit;
+    cursor: pointer; color:red
+}
+.name_product{
+    width: 35%;
+}
+.cart th,
 td {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
+    
 }
 
-th {
+.cart th {
     background-color: #236B8E;
     color: white;
 }
 
-td {
+.cart td {
     background-color: white;
     color: #333;
 }
-
-td:nth-child(3) img {
+.cart td input {
+    width: 30px;
+    text-align: center;
+}
+.cart td:nth-child(3) img {
     width: 100px;
     height: auto;
 }
+.cart .price {
+    width: 15%;
+}
 
-td:nth-child(1),
-td:nth-child(4),
-td:nth-child(5),
-td:nth-child(6),
-td:nth-child(7) {
+.cart td:nth-child(1),
+.cart td:nth-child(4),
+.cart td:nth-child(5),
+.cart td:nth-child(6),
+.cart td:nth-child(7) {
     text-align: center;
 }
-
-a {
+.table_bottom {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+ 
+}
+.table_bottom a {
     color: #007BFF;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 .table_bottom a {
     padding: 10px 20px;
@@ -94,3 +133,5 @@ a:hover {
 .delete_all a:hover {
     background-color: #1d5b74;
 }
+
+

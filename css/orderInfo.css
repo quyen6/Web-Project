@@ -1,15 +1,18 @@
 .cart-layout {
   display: flex;
-  justify-content: space-evenly;
-  align-items: start;
-  background-color: rgb(255, 255, 255);
-  height: 30% ;
-  margin: 40px 0 10px 0;
-  max-width: 1200px
+  justify-content: space-around;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  height: calc(100% - 18px);
+  margin: 0;
+  width: 100%;
+
 }
 
 .cart-info {
-  width: 60%;
+  width: 50%;
+  box-sizing: border-box;
+
 }
 
 .cart-form {
@@ -18,13 +21,120 @@
 
 }
 
-.cart-form h3 {
+.cart-form,
+.cart-info h3 {
   text-align: center;
 }
+
+/* cart-info */
+
+.cart-info-container {
+  display: flex;
+  /* border: 1px solid red; */
+  flex-direction: column;
+
+
+}
+
+.car-info-container-detail {
+  display: flex;
+  border: 1px solid rgb(2, 132, 139);
+
+}
+
+.left {
+  flex: 0 0 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgb(2, 132, 139);
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.product-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon {
+  /* border: 1px solid black; */
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.icon img {
+  width: 100px;
+  /* Adjust as needed */
+  height: 100px;
+  /* Adjust as needed */
+}
+
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.name,
+.quantity,
+.price {
+  margin: 5px 0;
+}
+
+.name {
+  font-weight: bold;
+
+}
+
+.price {
+  color: red;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity span {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+
+}
+
+.quantity_box input {
+  width: 20px;
+}
+
+
+.number {
+  margin: 5px 0;
+}
+
+
+/* cart-form */
 
 form {
   display: flex;
   flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  padding-left: 20px;
+  margin-bottom: 5px;
 }
 
 .fill-name input,
@@ -41,11 +151,16 @@ form {
   padding-left: 10px;
 }
 
-.delivery-options strong {
-  text-align: left;
-  display: block;
-  margin-bottom: 10px;
+.error {
+  color: red;
+  font-size: 90%;
+  font-style: italic;
 }
+
+.delivery-options {
+  padding: 0 ;
+}
+
 
 /* .cart-form .giaohang .hinhthucgiaohang {
     display: flex;
@@ -128,11 +243,13 @@ form {
 .option.selected {
   border-color: #00a86b;
   color: #00a86b;
+  margin: 10px;
 }
 
 .address {
   display: flex;
   gap: 20px;
+  padding: 0 10px;
 }
 
 .address select {
@@ -194,3 +311,69 @@ form {
 .confirm button:hover {
   background-color: rgb(1, 84, 71);
 }
+
+/* tổng tiền */
+.money {
+  margin-top: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+  line-height: 50px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.money a {
+  border: 2px solid;
+  background-color: rgb(25, 174, 152);
+  border-radius: 15px;
+  text-decoration: none;
+  margin: 10px;
+  padding: 5px;
+  color: black;
+}
+
+.money button {
+  border: 2px solid;
+  background-color: rgb(25, 174, 152);
+  border-radius: 15px;
+  text-decoration: none;
+  margin: 10px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 90%;
+  line-height: 50px;
+  color: black;
+}
+
+.payment-option-all {
+  width: 95%;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgb(229, 229, 229);
+  margin-top: 10px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.payment-option input[type="radio"] {
+  margin-left: 10px;
+  margin-top: 0; 
+}
+
+.payment-option label {
+  display: flex;
+  align-items: center;
+}
+

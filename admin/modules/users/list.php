@@ -11,7 +11,7 @@ layout('header', $data);
 //Kiểm tra trạng thái đăng nhập
 
 if (!isLogin()) {
-    redirect('?module=home&action=dashboard');
+    redirect('?module=active&action=login');
 }
 
 //Truy vấn vào bảng users

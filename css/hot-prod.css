@@ -1,5 +1,5 @@
 .hot-prod {
-    width: 97%;
+    width: 98%;
     height: 1660px;
     position: absolute;
     top: 320px;
@@ -7,7 +7,20 @@
     font-family: Roboto, sans-serif;
 }
 
-h2 {
+.hot-prod-product {
+    width: 100%;
+    height: 1660px;
+    /* position: absolute; */
+    /* top: 320px; */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    font-family: Roboto, sans-serif;
+}
+
+.hot-prod a:hover {
+    text-decoration: none;
+}
+
+.hot-prod h2 {
     text-transform: uppercase;
     margin: 15px 0;
 }
@@ -19,8 +32,10 @@ h2 {
 
 .mobile-link,
 .laptop-link {
-    width: calc(20% - 10px); /* 5 sản phẩm mỗi hàng, trừ đi gap */
-    max-width: 230px; /* Giới hạn kích thước tối đa */
+    width: calc(20% - 10px);
+    /* 5 sản phẩm mỗi hàng, trừ đi gap */
+    max-width: 230px;
+    /* Giới hạn kích thước tối đa */
     height: auto;
     box-shadow: 0 0 7px gray;
     border-radius: 10px;
@@ -32,10 +47,19 @@ h2 {
     font-size: 14px;
     position: relative;
     box-sizing: border-box;
-    margin-bottom: 10px; /* Thêm khoảng cách dưới */
+    margin-bottom: 10px;
+    /* Thêm khoảng cách dưới */
     flex: 0 0 auto;
-   
-    
+
+
+
+}
+
+.mobile-link:hover,
+.laptop-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px red;
+    transition: transform 0.3s;
 }
 
 .prod-mobile1,
@@ -45,11 +69,11 @@ h2 {
     display: flex;
     /* float: left; */
 
-    /* justify-content: space-between; */
+    justify-content: flex-start;
     box-sizing: border-box;
     width: 100%;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 6px 10px;
 }
 
 
@@ -66,11 +90,12 @@ h2 {
     padding: 0;
     bottom: 6px;
     right: 5px; */
-   
+
 
 }
 
-.mobile-link .love-icon , .laptop-link .love-icon{
+.mobile-link .love-icon,
+.laptop-link .love-icon {
 
     display: flex;
     font-size: 15px;
@@ -78,13 +103,25 @@ h2 {
     justify-content: space-between;
 }
 
-.mobile-link .love-icon .detail-star, .laptop-link .love-icon .detail-star {
+.mobile-link .love-icon .detail-star,
+.laptop-link .love-icon .detail-star {
     margin-top: 10px;
 }
 
 .love-icon img:hover {
     transform: scale(1.05);
+    transform: scale(1.2);
+    transition: transform 0.2s;
+}
 
+.mobile-link .love-icon button span,
+.laptop-link .love-icon button span {
+    margin: 0;
+    padding-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: red;
 }
 
 .love-icon button {
@@ -92,6 +129,7 @@ h2 {
     background-color: white;
     padding-bottom: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 
@@ -109,11 +147,12 @@ h2 {
     box-sizing: border-box;
 }
 
+
 .laptop-link>a>img {
     width: 200px;
     height: 250px;
     padding: 25px 0;
-   box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .mobile-link .name,
