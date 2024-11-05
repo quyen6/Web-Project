@@ -2,11 +2,12 @@
 ob_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/header.php');
 
-$filterAll = filter();
-if (!empty($filterAll['product_id'])) {
-    $product_id = $filterAll['product_id'];
+if (!empty($_GET['product_id'])) {
+    $product_id = $_GET['product_id'];
+    $_SESSION['original_product_id'] = $product_id;
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $product_id = isset($_SESSION['original_product_id']) ? $_SESSION['original_product_id'] : $product_id;
     header("Location: " . $_SERVER['PHP_SELF'] . "?product_id=" . $product_id);
     exit;
 }

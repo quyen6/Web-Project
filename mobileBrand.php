@@ -2,10 +2,12 @@
 ob_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/Web_Project/layout/header.php');
 
+/////////
 $filterAll = filter();
 
 if (!empty($filterAll['brand_id'])) {
     $brandId = $filterAll['brand_id'];
+    $_SESSION['brand_id'] = $brandId; // Lưu brand_id vào session
     $brandDetail = oneRaw("SELECT * FROM product WHERE brand_Id='$brandId'");
     if ($brandDetail) {
         setFLashData('brand-dail', $brandDetail);
@@ -13,9 +15,9 @@ if (!empty($filterAll['brand_id'])) {
         echo "Loi";
     }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['brand_id'])) {
-    
-    header("Location: " . $_SERVER['PHP_SELF'] . "?brand_id=" .$brandId);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $brandId = isset($_SESSION['brand_id']) ? $_SESSION['brand_id'] : null; // Lấy lại brand_id từ session
+    header("Location: " . $_SERVER['PHP_SELF'] . "?brand_id=" . $brandId);
     exit;
 }
 // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
